@@ -90,7 +90,7 @@ export default {
     mounted() {
         let vm = this;
         vm.onLoad();
-        console.log(window.dispatchEvent(new CustomEvent('main')))
+        window.dispatchEvent(new CustomEvent('timeFunc'));
     },
     methods:{
         onLoad() {

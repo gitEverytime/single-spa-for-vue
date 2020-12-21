@@ -1,16 +1,16 @@
 import vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from '../views/Home.vue'
 
 vue.use(Router)
 const routes = [
     {
         path:'/account',
-        component:() => import(/* webpackChunkName: "login" */ './views/login.vue')
+        component:() => import(/* webpackChunkName: "login" */ '../views/login.vue')
     },
     {
         path:'/',
-        component:() => import(/* webpackChunkName: "main" */ './views/main.vue'),
+        component:() => import(/* webpackChunkName: "main" */ '../views/main.vue'),
         children:[
             {
                 path: '',
@@ -25,7 +25,7 @@ const routes = [
                 meta:{
                     hiddenSideNav:true
                 },
-                component:() => import(/* webpackChunkName: "About" */ './views/About.vue')
+                component:() => import(/* webpackChunkName: "About" */ '../views/About.vue')
             },
             {
                 path:'*',
@@ -35,7 +35,6 @@ const routes = [
 ]
 const router = new Router({
     mode: "history",
-    base: "/main/",
     routes: routes
 })
 

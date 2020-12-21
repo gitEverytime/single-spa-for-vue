@@ -5,10 +5,10 @@ import goods from './views/goods.vue';
 import detail from './views/detail.vue'
 vue.use(Router)
 const routes = [
-    {
-        path:'/',
-        redirect:'/goods'
-    },
+    // {
+    //     path:'/',
+    //     redirect:'/goods'
+    // },
     {
         path: '/goods',
         name: 'home',
@@ -18,7 +18,6 @@ const routes = [
                 path:'detail',
                 name: 'detail',
                 component: () => import(/* webpackChunkName: "goods-detail" */ './views/detail.vue')
-
             }
         ]
     },
@@ -26,7 +25,6 @@ const routes = [
 
 const router = new Router({
     mode: "history",
-    base: "/goods/",
     routes: routes
 })
 export default router

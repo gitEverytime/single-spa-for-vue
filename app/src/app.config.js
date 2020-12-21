@@ -20,5 +20,12 @@ export default [
         path:'/goods',
         domID:'main',
         projectIndex:process.env.mode === 'prod'? 'http://localhost:9010' : 'http://localhost:9010/'
+    },
+    {
+        name:'iframe',
+        base:true,
+        path:'/iframe',
+        domID:'main',
+        projectIndex:process.env.mode === 'prod'? 'http://localhost:9013' : 'http://localhost:9013/'
     }
 ]

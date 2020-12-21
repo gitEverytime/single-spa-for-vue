@@ -1,10 +1,10 @@
 import vue from 'vue';
 import App from './App.vue';
-import router from './router';
+import router from './router/index.ts';
 import singleSpaVue from 'single-spa-vue';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
-import {startListen} from './eventListener.js';
+import {startListen} from './eventListener.ts';
 import apis from './api/index.ts'
 vue.use(Antd);
 vue.config.productionTip = false;
@@ -33,12 +33,11 @@ const appOptions = {
             document.cookie="warehouse_id=DC10004;expires=" + date
             document.cookie="MISSESSID=22rqf7hm35gus6ih53h7h7ifd0;expires=" + date
         },
+        time(){
+            console.log('1');
+        }
     }
 }
-// if(process.env.VUE_APP_SINGLERUN ==='true') {
-//     import('element-ui/lib/theme-chalk/index.css');
-//     new vue(appOptions)
-// }
 const vueLifecycles = singleSpaVue({
     Vue:vue,
     appOptions: appOptions,

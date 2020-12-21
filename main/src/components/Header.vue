@@ -4,7 +4,7 @@
         <a-menu
             theme="dark"
             mode="horizontal"
-            :default-selected-keys="['2']"
+            :default-selected-keys="['1']"
             :style="{ lineHeight: '64px' }"
         >
             <a-menu-item key="1">
@@ -15,6 +15,9 @@
             </a-menu-item>
             <a-menu-item key="3">
                 <router-link to="/customers" :class="{'router-link-exact-active':$route.path.indexOf('/customers') >= 0}">项目进度跟踪</router-link>
+            </a-menu-item>
+            <a-menu-item key="4">
+                <router-link to="/iframe" :class="{'router-link-exact-active':$route.path.indexOf('/iframe') >= 0}">食品安全</router-link>
             </a-menu-item>
         </a-menu>
     </a-layout-header>

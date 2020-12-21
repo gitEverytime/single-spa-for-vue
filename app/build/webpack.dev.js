@@ -6,7 +6,7 @@ module.exports =  {
         app:'./src/index.js'
     },
     devServer: {
-        port: 5000,
+        port: 5003,
         headers: {
             'Access-Control-Allow-Origin': '*'
         },

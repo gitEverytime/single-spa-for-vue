@@ -5,27 +5,25 @@
   "main": "index.js",
   "scripts": {
     "install:all": "cnpm i",
-    "start": "concurrently \"npm run start:app\" \"npm run start:goods\" \"npm run start:customers\" \"npm run start:main\"",
+    "start": "concurrently \"npm run start:app\" \"npm run start:goods\" \"npm run start:customers\" \"npm run start:main\" \"npm run start:iframe\"",
     "start:goods": "cd goods && npm run serve",
     "start:customers": "cd customers && npm run serve",
     "start:app": "cd app && npm run serve",
     "start:main": "cd main && npm run serve",
+    "start:iframe": "cd iframe && npm run serve",
     "build": "concurrently \"npm run build:app\" \"npm run build:goods\" \"npm run build:customers\" \"npm run build:main\"",
     "build:app": "cd app && npm run build",
     "build:goods": "cd goods && npm run build",
     "build:customers": "cd customers && npm run build",
-    "build:main": "cd main && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/QxQstar/single-spa-vue.git"
+    "build:main": "cd main && npm run build",
+    "build:iframe": "cd iframe && npm run build"
   },
   "author": "fanwenqiang",
   "license": "ISC",
   "homepage": "https://github.com/QxQstar/single-spa-vue#readme",
   "dependencies": {
     "ant-design-vue": "^1.7.2",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "core-js": "^2.6.5",
     "hytools": "^1.2.0",
     "@hydesign/grape": "^1.2.0",
@@ -42,7 +40,6 @@
     "@vue/cli-plugin-unit-jest": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vue/test-utils": "1.0.0-beta.29",
-    "axios": "^0.19.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
