@@ -21,12 +21,12 @@ const routes = [
         ]
     },
     {
-        path: '/detail/:id',
+        path: '/detail',
         name: 'home',
         component: detail
     }
 ]
 export default new Router({
-    mode: "history",
+    //mode: "history",
     routes: routes
 })

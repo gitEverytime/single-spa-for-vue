@@ -11,7 +11,7 @@ module.exports =  {
             'Access-Control-Allow-Origin': '*'
         },
         disableHostCheck: true,
-        historyApiFallback: true,
+        // historyApiFallback: true,
         proxy: {
             '/api': {
                 //正式环境：

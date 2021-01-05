@@ -5,27 +5,31 @@ export default [
         base:true,
         customProps:{},
         // 项目的入口
-        projectIndex:process.env.mode === 'prod' ? 'http://localhost:9100' : 'http://localhost:9100/'
+        projectIndex:process.env.mode === 'prod' ? 'http://localhost:9100' : 'http://localhost:9100/',
+        //routeMode: 'history'
     },
     {
         name:'customers',
-        base:true,
-        path:['/customers'],
+        base:false,
+        path:['#/customers','/detail'],
         domID:'main',
+       // routeMode: 'history',
         projectIndex:process.env.mode === 'prod' ? 'http://localhost:5100':'http://localhost:5100/'
     },
     {
-        name:'goods',
-        base:true,
-        path:'/goods',
+        name:'tools',
+        base:false,
+        path:'#/tools',
         domID:'main',
-        projectIndex:process.env.mode === 'prod'? 'http://localhost:9010' : 'http://localhost:9010/'
+        projectIndex:process.env.mode === 'prod' ? 'http://localhost:9010' : 'http://localhost:9010/',
+        //routeMode: 'history'
     },
     {
         name:'iframe',
-        base:true,
-        path:'/iframe',
+        base:false,
+        path:'#/iframe',
         domID:'main',
-        projectIndex:process.env.mode === 'prod'? 'http://localhost:9013' : 'http://localhost:9013/'
+        projectIndex:process.env.mode === 'prod'? 'http://localhost:9013' : 'http://localhost:9013/',
+        //routeMode: 'history'
     }
 ]

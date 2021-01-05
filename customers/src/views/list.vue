@@ -3,6 +3,7 @@
     <div class="item" @click="gotoDetail">
       <img src="https://avatars1.githubusercontent.com/u/17845091?s=460&v=4"/>
       <p>何遇</p>
+
         222
     </div>
   </div>

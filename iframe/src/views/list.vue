@@ -1,6 +1,6 @@
 <template>
-    <div class="goods-list">
-        eewewe
+    <div class="good1-list">
+        <iframe src=" http://192.168.0.125:9998/"></iframe>
     </div>
 </template>
 
@@ -39,8 +39,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .goods-list{
+    .good1-list{
         text-align: left;
+        height: 100%;
     }
   .item{
     width: 200px;
@@ -52,5 +53,10 @@ export default {
   }
     .warehouse{
         margin-top: 40px;
+    }
+    iframe{
+        border: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="g-warp">
         <a-layout id="components-layout-demo-top-side">
-            <Header></Header>
+            <Header v-if="isHiddenHead"></Header>
             <div class="g-content">
                 <router-view/>
-                <div id="main"></div>
+                <div id="main" style="height: 100%"></div>
             </div>
         </a-layout>
     </div>
@@ -26,16 +26,24 @@
                     return item.meta.hiddenSideNav
                 })
             },
-            // menu() {
-            //     const path = this.$route.path.slice(1);
-            //     const module = path.split('/')[0]
-            //     return menuObj[module];
-            // }
+            isHiddenHead () {
+                return this.$route.matched.some(item => {
+                    return item.meta.hiddenHead
+                })
+            }
         },
         components:{topNav,sideNav,Header},
 
     }
 </script>
 <style lang="less">
-
+    .g-warp{
+        height: 100%;
+    }
+    .ant-layout{
+        height: 100%;
+    }
+    .g-content{
+        height: 100%;
+    }
 </style>

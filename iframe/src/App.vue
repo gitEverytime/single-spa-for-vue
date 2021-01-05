@@ -1,5 +1,5 @@
 <template>
-    <div id="main" class="iframe-project">
+    <div id="main1" class="iframe-project" style="height: 100%">
         <keep-alive>
             <router-view/>
         </keep-alive>
