@@ -27,7 +27,7 @@
         <a-collapse v-model="activeKey" :bordered="false">
             <a-collapse-panel
                 key="1"
-                header="标题"
+                header="文本"
                 :style="{
                     backgroundColor: $store.state.light_color,
                     borderBottomColor: $store.state.deep_color,
@@ -59,7 +59,9 @@
                     borderBottomColor: $store.state.deep_color,
                 }"
             >
-                CVC1
+               <div style="min-height: 250px">
+                   <comp-l-btn-recover :obj="obj" v-if="obj.type === 'l_btn'"></comp-l-btn-recover>
+               </div>
             </a-collapse-panel>
             <a-collapse-panel
                 key="3"
@@ -85,6 +87,7 @@ import CompItalicsIcon from '../../../components/base/icons/ItalicsIcon.vue'
 import CompUnderLineIcon from '../../../components/base/icons/UnderLineIcon.vue'
 import CompDeleteLineIcon from '../../../components/base/icons/DeleteLineIcon.vue'
 import CompGridLayout from '../../../components/base/layout/GridLayout.vue'
+import CompLBtnRecover from '../../../components/base/btns/LBtnRecover.vue'
 export default {
     name: "RightBaseInfo",
     props:{
@@ -101,11 +104,12 @@ export default {
         CompItalicsIcon,
         CompUnderLineIcon,
         CompDeleteLineIcon,
-        CompGridLayout
+        CompGridLayout,
+        CompLBtnRecover
     },
     data(){
         return{
-            activeKey: ['1','3','4'],
+            activeKey: ['1','2','3','4'],
         }
     },
     created() {

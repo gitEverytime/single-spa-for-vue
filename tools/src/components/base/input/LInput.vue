@@ -3,7 +3,6 @@
         v-if="!form.isHide"
         @dragging="onDrag"
         @resizing="onResize"
-        :w="Number(form.width)"
         :h="Number(form.height)"
         :x="Number(form.left)"
         :y="Number(form.top)"

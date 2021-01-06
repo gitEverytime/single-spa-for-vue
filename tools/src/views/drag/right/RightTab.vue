@@ -16,7 +16,7 @@
                 <temp-right-base-info :obj="comp_base_info"></temp-right-base-info>
             </a-tab-pane>
             <a-tab-pane key="2" tab="交互" force-render>
-                交互
+                <temp-base-interaction :obj="comp_base_info"></temp-base-interaction>
             </a-tab-pane>
         </a-tabs>
     </div>
@@ -24,9 +24,11 @@
 
 <script lang="ts">
 import TempRightBaseInfo from './RightBaseInfo.vue'
+import TempBaseInteraction from '../../../components/base/interactive/BaseInteraction.vue'
 export default {
     components:{
-        TempRightBaseInfo
+        TempRightBaseInfo,
+        TempBaseInteraction
     },
     data() {
         return {};

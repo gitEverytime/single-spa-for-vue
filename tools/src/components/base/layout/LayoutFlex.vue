@@ -9,6 +9,7 @@
         :h="Number(form.height)"
         :x="Number(form.left)"
         :y="Number(form.top)"
+        :handles="['bm']"
         class="l_input l_handle_active l-mar-b-10"
         :class="'l_input' + index"
         :style="{

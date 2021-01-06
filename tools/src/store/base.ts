@@ -14,6 +14,7 @@ export default new Vuex.Store({
         comp_base_info:{},                     //当前组件基本信息
         comp_layout_info:{},                   //当前容器基本信息
         layout_active_class:'',                //当前选中栅格class
+        operate_layer:'main',                  //当前操作的层：main:主界面层，mod:弹出层
     },
     mutations:{
         increment(state){

@@ -11,6 +11,12 @@
                     :index="index"
                 >
                 </comp-l-input>
+                <comp-l-button
+                    v-if="form.type === 'l_btn'"
+                    :form="form"
+                    :index="index"
+                >
+                </comp-l-button>
             </div>
         </div>
     </div>
@@ -18,10 +24,12 @@
 <script>
 import source from '../../ts/data_manage/source.ts'
 import CompLInput from '../../components/base/input/LInput.vue'
+import CompLButton from '../../components/base/btns/LButton.vue'
 export default {
     name: "BaseRenderBox",
     components:{
-        CompLInput
+        CompLInput,
+        CompLButton
     },
     props:{
         className:{
