@@ -9,7 +9,7 @@
         :y="Number(form.top)"
         :min-height="34"
         :min-width="70"
-        :snap="true"
+        :parent="form.parentName"
         class="l_input l_handle_active"
         :class="'l_input' + index"
         :style="{
@@ -43,7 +43,10 @@
 </template>
 
 <script>
-import VueDraggableResizable from 'vue-draggable-resizable'
+import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
+
+// 导入默认样式
+import 'vue-draggable-resizable-gorkys/dist/VueDraggableResizable.css'
 export default {
    name: "LInput",
    components:{

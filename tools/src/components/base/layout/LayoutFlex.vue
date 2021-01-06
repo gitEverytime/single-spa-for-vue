@@ -26,11 +26,11 @@
             }"
         >
             <div
-                v-for="(n,key) of form.flex"
+                v-for="(n,key) of Number(form.flex)"
                 class="l-col"
                 :class="
                     [
-                        'l-col-' + (24/form.flex),
+                        'l-col-' + (24/Number(form.flex)),
                         'l-append-' + index + '-' + key,
                         {'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key}
                     ]
@@ -49,8 +49,8 @@
 </template>
 
 <script lang="ts">
-import VueDraggableResizable from 'vue-draggable-resizable'
 import TempBaseRenderBox from '../../../components/toolbar/BaseRenderBox.vue'
+import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 export default {
     name: "LoyoutFlex",
     components:{
@@ -148,6 +148,11 @@ export default {
         position: relative;
         cursor: pointer;
     }
+    .l-col-24 {
+        display: block;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
     .l-col-12 {
         display: block;
         flex: 0 0 50%;
@@ -163,9 +168,9 @@ export default {
         flex: 0 0 25%;
         max-width: 25%;
     }
-    //.l-mar-b-10{
-    //    margin-bottom: 10px;
-    //}
+    .l-mar-b-10{
+        margin-bottom: 10px;
+    }
     .vdr {
         border: none;
     }

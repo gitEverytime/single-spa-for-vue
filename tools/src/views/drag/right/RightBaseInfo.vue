@@ -33,7 +33,18 @@
                     borderBottomColor: $store.state.deep_color,
                 }"
             >
-                <div class="l_base_2">
+                <div
+                    class="l_base_2"
+                    :style="{
+                        padding:'10px',
+                        textAlign:'left'
+                    }"
+                >
+                    <span
+                        :style="{
+                            color:$store.state.text_color,
+                        }"
+                    >字体样式:</span>
                     <comp-blod-icon :obj="obj"></comp-blod-icon>
                     <comp-italics-icon :obj="obj"></comp-italics-icon>
                     <comp-under-line-icon :obj="obj"></comp-under-line-icon>
@@ -50,6 +61,16 @@
             >
                 CVC1
             </a-collapse-panel>
+            <a-collapse-panel
+                key="3"
+                header="栅格定义"
+                :style="{
+                    backgroundColor: $store.state.light_color,
+                    borderBottomColor: $store.state.deep_color,
+                }"
+            >
+                <comp-grid-layout :obj="$store.state.comp_layout_info"></comp-grid-layout>
+            </a-collapse-panel>
         </a-collapse>
     </div>
 </template>
@@ -63,6 +84,7 @@ import CompBlodIcon from '../../../components/base/icons/BlodIcon.vue'
 import CompItalicsIcon from '../../../components/base/icons/ItalicsIcon.vue'
 import CompUnderLineIcon from '../../../components/base/icons/UnderLineIcon.vue'
 import CompDeleteLineIcon from '../../../components/base/icons/DeleteLineIcon.vue'
+import CompGridLayout from '../../../components/base/layout/GridLayout.vue'
 export default {
     name: "RightBaseInfo",
     props:{
@@ -78,11 +100,12 @@ export default {
         CompBlodIcon,
         CompItalicsIcon,
         CompUnderLineIcon,
-        CompDeleteLineIcon
+        CompDeleteLineIcon,
+        CompGridLayout
     },
     data(){
         return{
-            activeKey: ['1','2','3','4'],
+            activeKey: ['1','3','4'],
         }
     },
     created() {

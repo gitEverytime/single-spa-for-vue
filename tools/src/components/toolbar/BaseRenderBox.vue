@@ -4,7 +4,7 @@
             v-for="(form,index) in sources"
             :key="'base' + index"
         >
-            <div v-if="form.parentName === className" class="cc">
+            <div v-if="form.parentName === className">
                 <comp-l-input
                     v-if="form.type === 'l_input'"
                     :form="form"

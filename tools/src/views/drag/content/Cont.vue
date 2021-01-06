@@ -3,6 +3,7 @@
         class="l_drag_cont"
         :style="{
             margin:$store.state.open_status ? '0 240px' : '0',
+            padding:'20px'
         }"
     >
         <!--布局组件渲染盒子-->

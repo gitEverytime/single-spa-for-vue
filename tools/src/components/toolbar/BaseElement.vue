@@ -73,8 +73,8 @@ export default {
                             obj.width = '300';
                             obj.height = '34';
                             obj.name = vm.item.name + vm.sources.length;
-                            obj.top = 20;
-                            obj.left = 20;
+                            obj.top = 0;
+                            obj.left = 0;
                             obj.parentName = `.${data}`;
                             obj.index = vm.sources.length;
                             console.log(obj)
