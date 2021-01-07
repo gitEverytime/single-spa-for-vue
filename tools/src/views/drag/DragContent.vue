@@ -1,5 +1,5 @@
 <template>
-    <div class="l-drag-content" id="toolsContent">
+    <div class="l-drag-content" id="toolsContent" >
         <!-- 左半区-->
         <temp-content-left></temp-content-left>
         <!-- 中间区域-->
@@ -18,7 +18,7 @@ export default {
     components:{
         TempContentLeft,
         TempContentRight,
-        TempContentCont
+        TempContentCont,
     },
     data() {
         return {

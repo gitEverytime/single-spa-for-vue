@@ -43,6 +43,36 @@ const left_components = [
                 type:'l_n_input',
                 class:'icon-shuzishurukuang'
             },
+            {
+                name:'Table表格',
+                type:'l_table',
+                class:'icon-table'
+            },
+            {
+                name:'面包屑导航',
+                type:'l_home',
+                class:'icon-home'
+            },
+            {
+                name:'日期',
+                type:'l_date',
+                class:'icon-date'
+            },
+            {
+                name:'上传',
+                type:'l_upload',
+                class:'icon-upload'
+            },
+            {
+                name:'分页',
+                type:'l_pagination',
+                class:'icon-fenye'
+            },
+            {
+                name:'步骤条',
+                type:'l_step',
+                class:'icon-step'
+            },
         ]
     },
     {

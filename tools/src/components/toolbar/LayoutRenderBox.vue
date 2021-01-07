@@ -5,7 +5,7 @@
             :key="'layout' + index"
         >
             <comp-layout-flex
-                v-if="form.type === 'l_flex'"
+                v-if="form.type === 'l_flex' && operate_layer === form.operateLayer"
                 :form="form"
                 :index="index"
             >
@@ -20,6 +20,11 @@ export default {
     name: "LayoutRenderBox",
     components:{
         CompLayoutFlex
+    },
+    props:{
+        operate_layer:{
+            type:String
+        }
     },
     data(){
         let vm = this;

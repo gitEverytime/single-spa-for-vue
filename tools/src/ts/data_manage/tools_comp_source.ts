@@ -28,8 +28,13 @@ export default {
         _value:'',                             //数据库字段外键值
         parentName:'',                         //组件添加的父级class名称
         btnType:'primary',                     //按钮类型
-        interactiveType:'insert',              //交互类型
-        operateLayer:'main'                    //拖拽操作的层级
+        interactiveType:'no_function',         //交互类型
+        operateLayer:'main',                   //拖拽操作的层级
+        enumops:'',                            //数据字典接口配置
+        required:false,                        //是否必填
+        checkRoot:'',                          //检查权限接口配置
+        alias:'',                              //别名
+
     },
     //布局容器组件数据源
     layout_scource:{
@@ -40,23 +45,30 @@ export default {
         top: '',
         left: '',
         position: 'absolute',
-        isHide: false,
-        isDisabled: false,
         index: '',
         isBold: false,
-        isItalics: false,
-        fontSize:'14px',
         fontFamily:'',
         padding:'',
         margin:'',
         borderRadius:'',
         color:'',
         isLock:false,
-        key:'',
-        value:'',
-        _key:'',
-        _value:'',
-        flex:4,                                      //栅格格数
-        children:[]
+        flex:4,                                  //栅格格数
+        children:[],
+        operateLayer:'main',                     //拖拽操作的层级
     },
+    //弹窗容器组件数据源
+    modal_scource:{
+        width:'70%',
+        height:'',
+        top:'',
+        left:'',
+        type:'modal',                             //类型
+        name:'弹窗',
+        okText:'确认',                             //确认文案
+        cancelText:'取消',                         //取消文案
+        title:'Modal',                            //弹窗标题
+        triggerElement:'',                        //触发元素
+        visible:false,                            //弹窗是否显示
+    }
 }

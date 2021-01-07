@@ -20,10 +20,10 @@
             class="l-row"
             @click="handleClickDragElement"
             :style="{
-                borderTop:'#999 dashed 1px',
-                borderLeft:'#999 dashed 1px',
-                borderRight:'#999 dashed 1px',
                 height:'100%'
+            }"
+            :class="{
+                'dotted':$store.state.is_show_dotted
             }"
         >
             <div
@@ -180,5 +180,10 @@ export default {
     }
     .activeColor{
         border: #009dff solid 2px !important;
+    }
+    .dotted{
+        border-top:#999 dashed 1px;
+        border-left:#999 dashed 1px;
+        border-right:#999 dashed 1px
     }
 </style>

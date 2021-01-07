@@ -8,7 +8,7 @@
         :mask="false"
         width="240"
         :get-container="false"
-        :wrap-style="{ position: 'absolute' }"
+        :wrap-style="{ position: 'absolute',zIndex:9999 }"
         :drawer-style="{
             backgroundColor:$store.state.deep_color
         }"

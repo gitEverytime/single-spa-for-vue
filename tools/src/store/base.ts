@@ -15,6 +15,10 @@ export default new Vuex.Store({
         comp_layout_info:{},                   //当前容器基本信息
         layout_active_class:'',                //当前选中栅格class
         operate_layer:'main',                  //当前操作的层：main:主界面层，mod:弹出层
+        visible_modal:false,                   //弹出是否显示,
+        is_show_square:true,                   //是否显示方格（底层方格）
+        is_show_dotted:true,                   //是否显示虚线（布局盒子虚线）
+
     },
     mutations:{
         increment(state){
@@ -43,6 +47,18 @@ export default new Vuex.Store({
         },
         setLayoutActiveClass (state,data) {
             state.layout_active_class = data;
+        },
+        setOperateLayer (state,data) {
+            state.operate_layer = data;
+        },
+        setVisibleModal (state,data) {
+            state.visible_modal = data;
+        },
+        setIsShowSquare (state,data) {
+            state.is_show_square = data;
+        },
+        setIsShowDotted (state,data) {
+            state.is_show_dotted = data;
         },
     }
 })

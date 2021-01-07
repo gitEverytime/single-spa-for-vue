@@ -72,12 +72,13 @@ export default {
                             obj.type = vm.item.type;
                             obj.width = '300';
                             obj.height = '34';
+                            obj.operateLayer = vm.$store.state.operate_layer;
                             obj.name = vm.item.name + vm.sources.length;
                             obj.top = 0;
                             obj.left = 0;
                             obj.parentName = `.${data}`;
                             obj.index = vm.sources.length;
-                            console.log(obj)
+                            obj.alias = `${vm.item.type}${vm.sources.length}`;
                             vm.$set(vm.sources,vm.sources.length, obj);
                         }else{
                             //

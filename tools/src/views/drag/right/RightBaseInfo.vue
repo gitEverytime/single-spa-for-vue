@@ -73,6 +73,16 @@
             >
                 <comp-grid-layout :obj="$store.state.comp_layout_info"></comp-grid-layout>
             </a-collapse-panel>
+            <a-collapse-panel
+                key="4"
+                header="弹出样式"
+                :style="{
+                    backgroundColor: $store.state.light_color,
+                    borderBottomColor: $store.state.deep_color,
+                }"
+            >
+                <comp-l-modal-info></comp-l-modal-info>
+            </a-collapse-panel>
         </a-collapse>
     </div>
 </template>
@@ -88,6 +98,7 @@ import CompUnderLineIcon from '../../../components/base/icons/UnderLineIcon.vue'
 import CompDeleteLineIcon from '../../../components/base/icons/DeleteLineIcon.vue'
 import CompGridLayout from '../../../components/base/layout/GridLayout.vue'
 import CompLBtnRecover from '../../../components/base/btns/LBtnRecover.vue'
+import CompLModalInfo from '../../../components/base/modal/LModalInfo.vue'
 export default {
     name: "RightBaseInfo",
     props:{
@@ -105,7 +116,8 @@ export default {
         CompUnderLineIcon,
         CompDeleteLineIcon,
         CompGridLayout,
-        CompLBtnRecover
+        CompLBtnRecover,
+        CompLModalInfo
     },
     data(){
         return{

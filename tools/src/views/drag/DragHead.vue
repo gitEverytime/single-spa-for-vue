@@ -32,7 +32,27 @@
             </a-tooltip>
         </div>
         <div class="l-drag-head-right">
-            <!-- 全屏-->
+            <a-tooltip
+                placement="bottomRight"
+                :getPopupContainer="
+                    triggerNode => {
+                        return triggerNode.parentNode || document.body;
+                    }
+                "
+            >
+                <template slot="title">
+                    全屏(Ctrl+F11)
+                </template>
+                <a-icon
+                    type="arrows-alt"
+                    :style="{
+                        color: '#ffffff',
+                        fontSize:'18px',
+                        cursor: 'pointer',
+                        marginRight:'12px'
+                    }"
+                />
+            </a-tooltip>
             <a-tooltip
                 placement="bottomRight"
                 :getPopupContainer="
@@ -125,5 +145,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding:0 12px;
+        position: relative;
+        z-index: 9999;
     }
 </style>

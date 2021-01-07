@@ -9,6 +9,7 @@
                     return triggerNode.parentNode || document.body;
                 }
             "
+            @select="handleSelect"
             size="small"
             v-model:value="obj.interactiveType"
             ref="select"
@@ -28,6 +29,8 @@
 </template>
 
 <script lang="ts">
+import source from '../../../ts/data_manage/source.ts'
+import tools_comp_source from "../../../ts/data_manage/tools_comp_source.ts";
 export default {
     name: "GridLayout",
     props:{
@@ -53,8 +56,14 @@ export default {
                 {
                     name:'查询',
                     value:'query'
-                }
-            ]
+                },
+                {
+                    name:'无功能',
+                    value:'no_function'
+                },
+            ],
+            sources:source.modal_info,
+            modal:tools_comp_source.modal_scource
         }
     },
     created(){
@@ -64,7 +73,24 @@ export default {
 
     },
     methods:{
-
+        /**
+         *
+         */
+        handleSelect(data){
+            let vm = this;
+            let obj = JSON.parse(JSON.stringify(vm.modal))
+            switch (data) {
+                case 'insert':
+                    /**
+                     * 1, 绑定触发元素的别名
+                     * 2，弹窗基本信息数据源去重push
+                     */
+                    obj['title'] = `Modal${vm.sources.length}`;
+                    obj['triggerElement'] = vm.obj.alias;
+                    if(!vm.sources.filter(source => source.triggerElement === vm.obj.alias).length) vm.$set(vm.sources,vm.sources.length, obj);
+                    break;
+            }
+        }
     }
 }
 </script>

@@ -16,7 +16,9 @@
                 <temp-right-base-info :obj="comp_base_info"></temp-right-base-info>
             </a-tab-pane>
             <a-tab-pane key="2" tab="交互" force-render>
-                <temp-base-interaction :obj="comp_base_info"></temp-base-interaction>
+                <div style="height: 250px">
+                    <temp-base-interaction :obj="comp_base_info"></temp-base-interaction>
+                </div>
             </a-tab-pane>
         </a-tabs>
     </div>

@@ -70,6 +70,7 @@ export default {
                         obj.type = vm.item.type;
                         obj.width = '100%';
                         obj.height = '100';
+                        obj.operateLayer = vm.$store.state.operate_layer;
                         obj.name = vm.item.name + vm.sources.length;
                         obj.index = vm.sources.length;
                         vm.$set(vm.sources,vm.sources.length, obj);

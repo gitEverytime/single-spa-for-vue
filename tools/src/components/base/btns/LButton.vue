@@ -19,6 +19,7 @@
     >
         <a-button
             @click="handleClickDragElement"
+            @dblclick="handledbClickDragElement"
             :type="form.btnType || 'primary'"
             :disabled="form.isDisabled"
             class="l_btn"
@@ -44,6 +45,8 @@ import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 
 // 导入默认样式
 import 'vue-draggable-resizable-gorkys/dist/VueDraggableResizable.css'
+import source from '../../../ts/data_manage/source.ts'
+import tools_comp_source from "../../../ts/data_manage/tools_comp_source.ts";
 export default {
     name: "LInput",
     components:{
@@ -60,7 +63,8 @@ export default {
     data(){
         let vm = this;
         return{
-
+            sources:source.modal_info,
+            obj:tools_comp_source.modal_scource
         }
     },
     created(){
@@ -77,6 +81,27 @@ export default {
         handleClickDragElement(){
             let vm = this;
             vm.$store.commit('setCompBaseInfo',vm.form);
+        },
+        /**
+         * 双击运行当前按钮绑定的交互
+         */
+        handledbClickDragElement(){
+            let vm = this;
+            const type = vm.form.interactiveType;
+            /***
+             * 按钮交互类型判断
+             */
+            switch (type) {
+                case "insert":
+                    /**
+                     * 1，显示对应的弹窗
+                     * 2，绑定操作的层
+                     * @type {boolean}
+                     */
+                    vm.sources.filter(source => source.triggerElement === vm.form.alias)[0].visible = true;
+                    vm.$store.commit('setOperateLayer','modal');
+                    break;
+            }
         },
         /**
          * 缩放回调
