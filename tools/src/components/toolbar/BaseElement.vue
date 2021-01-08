@@ -70,13 +70,14 @@ export default {
                         if(Number(ui.offset.left).toFixed(2) > 240) {
                             let obj = JSON.parse(JSON.stringify(vm.obj))
                             obj.type = vm.item.type;
-                            obj.width = '300';
-                            obj.height = '34';
+                            obj.width = vm.item.width;
+                            obj.height = vm.item.height;
                             obj.operateLayer = vm.$store.state.operate_layer;
                             obj.name = vm.item.name + vm.sources.length;
                             obj.top = 0;
                             obj.left = 0;
                             obj.parentName = `.${data}`;
+                            obj.handles = vm.item.handles;
                             obj.index = vm.sources.length;
                             obj.alias = `${vm.item.type}${vm.sources.length}`;
                             vm.$set(vm.sources,vm.sources.length, obj);
@@ -94,7 +95,6 @@ export default {
         let vm = this;
     },
     methods:{
-
     },
     beforeDestroy() {
     }

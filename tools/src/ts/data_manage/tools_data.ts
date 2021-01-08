@@ -6,12 +6,18 @@ const left_components = [
             {
                 name:'按钮',
                 type:'l_btn',
-                class:'icon-anniu'
+                class:'icon-anniu',
+                width:'70',
+                height:'34',
+                handles:[]
             },
             {
                 name:'输入框',
                 type:'l_input',
-                class:'icon-shurukuang'
+                class:'icon-shurukuang',
+                width:'200',
+                height:'34',
+                handles:['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']
             },
             {
                 name:'下拉框',

@@ -41,10 +41,57 @@
                 "
             >
                 <template slot="title">
-                    全屏(Ctrl+F11)
+                    {{$store.state.is_show_dotted ? '隐藏虚线' : '显示虚线'}}
                 </template>
                 <a-icon
-                    type="arrows-alt"
+                    type="border-inner"
+                    v-if="$store.state.is_show_dotted"
+                    @click="$store.commit('setIsShowDotted',false)"
+                    :style="{
+                        color: '#ffffff',
+                        fontSize:'18px',
+                        cursor: 'pointer',
+                        marginRight:'12px'
+                    }"
+                />
+                <a-icon
+                    type="border-outer"
+                    v-if="!$store.state.is_show_dotted"
+                    @click="$store.commit('setIsShowDotted',true)"
+                    :style="{
+                        color: '#ffffff',
+                        fontSize:'18px',
+                        cursor: 'pointer',
+                        marginRight:'12px'
+                    }"
+                />
+            </a-tooltip>
+            <a-tooltip
+                placement="bottomRight"
+                :getPopupContainer="
+                    triggerNode => {
+                        return triggerNode.parentNode || document.body;
+                    }
+                "
+            >
+                <template slot="title">
+                    {{$store.state.is_show_square ? '隐藏底纹' : '显示底纹'}}
+                </template>
+                <a-icon
+                    type="border-inner"
+                    v-if="$store.state.is_show_square"
+                    @click="$store.commit('setIsShowSquare',false)"
+                    :style="{
+                        color: '#ffffff',
+                        fontSize:'18px',
+                        cursor: 'pointer',
+                        marginRight:'12px'
+                    }"
+                />
+                <a-icon
+                    type="border-outer"
+                    v-if="!$store.state.is_show_square"
+                    @click="$store.commit('setIsShowSquare',true)"
                     :style="{
                         color: '#ffffff',
                         fontSize:'18px',
@@ -66,6 +113,19 @@
                 </template>
                 <a-icon
                     type="arrows-alt"
+                    v-if="!fullscreen"
+                    @click="handleFullScreen"
+                    :style="{
+                        color: '#ffffff',
+                        fontSize:'18px',
+                        cursor: 'pointer',
+                        marginRight:'12px'
+                    }"
+                />
+                <a-icon
+                    type="shrink"
+                    @click="handleFullScreen"
+                    v-if="fullscreen"
                     :style="{
                         color: '#ffffff',
                         fontSize:'18px',
@@ -74,6 +134,7 @@
                     }"
                 />
             </a-tooltip>
+<!--            <a-icon type="shrink" />-->
             <!--收起左侧/右侧-->
             <a-tooltip
                 placement="bottomRight"
@@ -119,7 +180,7 @@ export default {
     },
     data() {
         return {
-
+            fullscreen:false
         }
     },
     created() {
@@ -130,7 +191,39 @@ export default {
         handleClickOpen(){
             let vm = this;
             vm.$store.commit('setOpenStatus',!vm.$store.state.open_status);
-        }
+        },
+        /**
+         * 全屏事件
+         */
+        handleFullScreen(){
+            let element = document.documentElement;
+            // 判断是否已经是全屏
+            // 如果是全屏，退出
+            if (this.fullscreen) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            } else {    // 否则，进入全屏
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.webkitRequestFullScreen) {
+                    element.webkitRequestFullScreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) {
+                    // IE11
+                    element.msRequestFullscreen();
+                }
+            }
+            // 改变当前全屏状态
+            this.fullscreen = !this.fullscreen;
+        },
     },
     beforeDestroy() {
     }

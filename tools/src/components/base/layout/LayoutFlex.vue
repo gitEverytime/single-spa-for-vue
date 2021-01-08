@@ -28,17 +28,20 @@
         >
             <div
                 v-for="(n,key) of Number(form.flex)"
+                :key="key"
                 class="l-col"
                 :class="
                     [
                         'l-col-' + (24/Number(form.flex)),
                         'l-append-' + index + '-' + key,
-                        {'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key}
+                        {
+                            'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key,
+                            'l-bor-right':$store.state.is_show_dotted
+                        }
                     ]
                 "
                 @click="handleClickCol(key)"
                 :style="{
-                    borderRight:'#999 dashed 1px',
                     height:'100%'
                 }"
             >
@@ -50,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import TempBaseRenderBox from '../../../components/toolbar/BaseRenderBox.vue'
+import TempBaseRenderBox from '../../toolbar/BaseDraggable.vue'
 import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 export default {
     name: "LoyoutFlex",
@@ -142,9 +145,6 @@ export default {
         display: flex;
         flex-flow: row wrap;
     }
-    .l-row:last-child{
-        border-bottom: #999 dashed 1px;
-    }
     .l-col{
         position: relative;
         cursor: pointer;
@@ -174,6 +174,10 @@ export default {
     }
     .vdr {
         border: none;
+        position: relative;
+    }
+    .l-bor-right{
+        border-right:#999 dashed 1px
     }
     .active{
         //border:#999 dashed 1px
@@ -185,5 +189,8 @@ export default {
         border-top:#999 dashed 1px;
         border-left:#999 dashed 1px;
         border-right:#999 dashed 1px
+    }
+    .dotted:last-child{
+        border-bottom: #999 dashed 1px;
     }
 </style>
