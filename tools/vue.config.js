@@ -2,6 +2,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 module.exports = {
     lintOnSave:false,
     devServer:{
+        host: '0.0.0.0',
         port:9010,
         //historyApiFallback: true,
         headers: {

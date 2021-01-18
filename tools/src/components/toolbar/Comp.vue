@@ -10,7 +10,7 @@
         </base-element>
         <!-- 布局容器组件-->
         <layout-element
-            v-if="type === 'layout'"
+            v-else-if="type === 'layout'"
             v-for="(item,index) in datas"
             :item="item"
             :index="index"

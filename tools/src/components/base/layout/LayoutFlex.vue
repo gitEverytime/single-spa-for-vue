@@ -48,6 +48,14 @@
                 <!--基础组件渲染盒子-->
                 <temp-base-render-box :className="'.l-append-' + index + '-' + key"></temp-base-render-box>
             </div>
+            <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
+                <a-icon
+                    type="close-circle"
+                    :style="{
+                        'color':$store.state.active_color
+                    }"
+                />
+            </span>
         </div>
     </vue-draggable-resizable>
 </template>
@@ -55,6 +63,7 @@
 <script lang="ts">
 import TempBaseRenderBox from '../../toolbar/BaseDraggable.vue'
 import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
+import source from '../../../ts/data_manage/source.ts'
 export default {
     name: "LoyoutFlex",
     components:{
@@ -71,10 +80,18 @@ export default {
     },
     data(){
         return{
-            activeIndex:''
+            activeIndex:'',
+            sources:source.layout_info,
         }
     },
     methods:{
+        /**
+         * 删除
+         */
+        handleClickDel(index){
+            let vm = this;
+            vm.sources[index].isHide = true;
+        },
         /**
          * 点击选中当前组件，回传数据给公共管理库，记录
          */
@@ -144,6 +161,7 @@ export default {
     .l-row {
         display: flex;
         flex-flow: row wrap;
+        position: relative;
     }
     .l-col{
         position: relative;
@@ -192,5 +210,14 @@ export default {
     }
     .dotted:last-child{
         border-bottom: #999 dashed 1px;
+    }
+    .closeLayoutBtn{
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 19px;
+        background: #FFFFFF;
+        cursor: pointer;
     }
 </style>

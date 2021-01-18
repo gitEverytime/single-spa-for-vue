@@ -14,7 +14,7 @@ export default new Vuex.Store({
         comp_base_info:{},                     //当前组件基本信息
         comp_layout_info:{},                   //当前容器基本信息
         layout_active_class:'',                //当前选中栅格class
-        operate_layer:'main',                  //当前操作的层：main:主界面层，mod:弹出层
+        operate_layer:'main',                  //当前操 作的层：main:主界面层，mod:弹出层
         visible_modal:false,                   //弹出是否显示,
         is_show_square:true,                   //是否显示方格（底层方格）
         is_show_dotted:true,                   //是否显示虚线（布局盒子虚线）

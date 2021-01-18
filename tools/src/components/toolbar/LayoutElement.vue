@@ -74,7 +74,6 @@ export default {
                         obj.name = vm.item.name + vm.sources.length;
                         obj.index = vm.sources.length;
                         vm.$set(vm.sources,vm.sources.length, obj);
-                        console.log(vm.sources)
                     }else{
                         //
                     }
