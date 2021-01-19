@@ -1,6 +1,7 @@
 /**axios封装
  * 请求拦截、相应拦截、错误统一处理
  */
+// @ts-ignore
 import axios from 'axios';
 // @ts-ignore
 import QS from 'qs';
@@ -75,7 +76,7 @@ axios.interceptors.response.use(
  * @param {String} url [请求的url地址]
  * @param {Object} params [请求时携带的参数]
  */
-export function get(url, params){
+export function get(url: string, params: any){
     return new Promise((resolve, reject) =>{
         axios.get(url, {
             params: params,
@@ -97,7 +98,7 @@ export function get(url, params){
  * @param {String} url [请求的url地址]
  * @param {Object} params [请求时携带的参数]
  */
-export function post(url, params) {
+export function post(url: string, params: any) {
     return new Promise((resolve, reject) => {
         axios.post(url, QS.stringify(params))
             .then(res => {

@@ -19,6 +19,27 @@ module.exports = {
         }, // 设置代理
     },
     publicPath:process.env.VUE_APP_publicPath,
+    configureWebpack: {
+        resolve: { extensions: [".ts", ".tsx", ".js", ".json"] },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules/,
+                    enforce: 'pre',
+                    loader: 'tslint-loader'
+                },
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/],
+                    }
+                }
+            ]
+        }
+    },
     chainWebpack: config => {
         // 不是独立运行的时候，将公共npm包抽离
         if(process.env.VUE_APP_SINGLERUN !== 'true') {

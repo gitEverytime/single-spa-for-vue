@@ -65,7 +65,8 @@ export default {
                 appendTo: ".tools-project",
                 zIndex:1000,
                 stop: function (event,ui) {
-                    if(Number(ui.offset.left).toFixed(2) > 240) {
+                let left = Number(ui.offset.left).toFixed(2);
+                    if(Number(left) > 240) {
                         let obj = JSON.parse(JSON.stringify(vm.obj))
                         obj.type = vm.item.type;
                         obj.width = '100%';

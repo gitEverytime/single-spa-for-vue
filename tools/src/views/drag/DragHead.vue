@@ -190,6 +190,7 @@ export default {
     methods: {
         handleClickOpen(){
             let vm = this;
+            // @ts-ignore
             vm.$store.commit('setOpenStatus',!vm.$store.state.open_status);
         },
         /**
@@ -197,32 +198,47 @@ export default {
          */
         handleFullScreen(){
             let element = document.documentElement;
+            let vm = this;
             // 判断是否已经是全屏
             // 如果是全屏，退出
-            if (this.fullscreen) {
+            // @ts-ignore
+            if (vm.fullscreen) {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
+                    // @ts-ignore
                 } else if (document.webkitCancelFullScreen) {
+                    // @ts-ignore
                     document.webkitCancelFullScreen();
+                    // @ts-ignore
                 } else if (document.mozCancelFullScreen) {
+                    // @ts-ignore
                     document.mozCancelFullScreen();
+                    // @ts-ignore
                 } else if (document.msExitFullscreen) {
+                    // @ts-ignore
                     document.msExitFullscreen();
                 }
             } else {    // 否则，进入全屏
                 if (element.requestFullscreen) {
                     element.requestFullscreen();
+                    // @ts-ignore
                 } else if (element.webkitRequestFullScreen) {
+                    // @ts-ignore
                     element.webkitRequestFullScreen();
+                    // @ts-ignore
                 } else if (element.mozRequestFullScreen) {
+                    // @ts-ignore
                     element.mozRequestFullScreen();
+                    // @ts-ignore
                 } else if (element.msRequestFullscreen) {
                     // IE11
+                    // @ts-ignore
                     element.msRequestFullscreen();
                 }
             }
             // 改变当前全屏状态
-            this.fullscreen = !this.fullscreen;
+            // @ts-ignore
+            vm.fullscreen = !vm.fullscreen;
         },
     },
     beforeDestroy() {

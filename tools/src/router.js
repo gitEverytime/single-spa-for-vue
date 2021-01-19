@@ -13,11 +13,17 @@ const routes = [
         },
         component: main,
         children:[
+            /**
+             * 拖拽页面
+             */
             {
                 path: 'drag/:id',
                 name: 'drag',
                 component: drag,
-            }
+            },
+            /**
+             *
+             */
         ]
     },
 ]

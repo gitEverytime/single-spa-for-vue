@@ -23,6 +23,16 @@ export default {
     created() {
     },
     mounted() {
+        let cc : string = '121';
+        console.log(cc)
+        interface LabelledValue{
+            label:string
+        }
+        function printValue(obj:LabelledValue){
+            console.log(obj.label)
+        }
+        let obj = {size:19,label:'ssss'}
+        printValue(obj);
     },
     methods: {
 
