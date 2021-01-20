@@ -2,6 +2,7 @@ import vue from 'vue'
 import Router from 'vue-router'
 import main from './views/main/Main.vue'
 import drag from './views/drag/Drag.vue'
+import form from './views/form/Form.vue'
 vue.use(Router)
 const routes = [
     {
@@ -13,17 +14,16 @@ const routes = [
         },
         component: main,
         children:[
-            /**
-             * 拖拽页面
-             */
             {
-                path: 'drag/:id',
+                path: 'main/drag/:type/:id',
                 name: 'drag',
                 component: drag,
             },
-            /**
-             *
-             */
+            {
+                path: 'form/drag/:type/:id',
+                name: 'form',
+                component: form,
+            }
         ]
     },
 ]

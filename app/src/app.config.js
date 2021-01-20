@@ -5,7 +5,7 @@ export default [
         base:true,
         customProps:{},
         // 项目的入口
-        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.125:9100' : 'http://192.168.0.125:9100/',
+        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.108:9100' : 'http://192.168.0.108:9100/',
         //routeMode: 'history'
     },
     {
@@ -14,14 +14,14 @@ export default [
         path:['#/customers','/detail'],
         domID:'main',
        // routeMode: 'history',
-        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.125:5100':'http://192.168.0.125:5100/'
+        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.108:5100':'http://192.168.0.108:5100/'
     },
     {
         name:'tools',
         base:false,
         path:'#/tools',
         domID:'main',
-        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.125:9010' : 'http://192.168.0.125:9010/',
+        projectIndex:process.env.mode === 'prod' ? 'http://192.168.0.108:9010' : 'http://192.168.0.108:9010/',
         //routeMode: 'history'
     },
     {
@@ -29,7 +29,7 @@ export default [
         base:false,
         path:'#/iframe',
         domID:'main',
-        projectIndex:process.env.mode === 'prod'? 'http://192.168.0.125:9013' : 'http://192.168.0.125:9013/',
+        projectIndex:process.env.mode === 'prod'? 'http://192.168.0.108:9013' : 'http://192.168.0.108:9013/',
         //routeMode: 'history'
     }
 ]

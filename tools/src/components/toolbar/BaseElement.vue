@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+// @ts-ignore
 import $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui'
 import 'jquery-ui-dist/jquery-ui.min.css'

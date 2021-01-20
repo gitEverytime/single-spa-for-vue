@@ -1,6 +1,7 @@
+// @ts-ignore
 import {set} from './assets/js/main.js'
-let vm;
-export function startListen(_vm) {
+let vm:any;
+export function startListen(_vm:any) {
     vm = _vm;
     listenLogout();
     listenTime();

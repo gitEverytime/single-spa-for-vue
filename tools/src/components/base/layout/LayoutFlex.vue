@@ -45,12 +45,24 @@
                     height:'100%'
                 }"
             >
-                <!--基础组件渲染盒子-->
-                <temp-base-render-box :className="'.l-append-' + index + '-' + key"></temp-base-render-box>
+                <!--主界面：基础组件渲染盒子-->
+                <temp-base-draggable
+                    :className="'.l-append-' + index + '-' + key"
+                    v-if="$route.params.type === '0'"
+                >
+
+                </temp-base-draggable>
+                <!--表单界面：基础组件渲染盒子-->
+                <temp-base-no-draggable
+                    :className="'.l-append-' + index + '-' + key"
+                    v-if="$route.params.type === '1'"
+                >
+
+                </temp-base-no-draggable>
             </div>
             <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
                 <a-icon
-                    type="close-circle"
+                    type="delete"
                     :style="{
                         'color':$store.state.active_color
                     }"
@@ -61,14 +73,17 @@
 </template>
 
 <script lang="ts">
-import TempBaseRenderBox from '../../toolbar/BaseDraggable.vue'
+import TempBaseDraggable from '../../toolbar/BaseDraggable.vue'
+import TempBaseNoDraggable from '../../toolbar/BaseNoDraggable.vue'
+// @ts-ignore
 import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 import source from '../../../ts/data_manage/source.ts'
 export default {
     name: "LoyoutFlex",
     components:{
         VueDraggableResizable,
-        TempBaseRenderBox
+        TempBaseDraggable,
+        TempBaseNoDraggable
     },
     props:{
         form:{
@@ -166,29 +181,33 @@ export default {
     .l-col{
         position: relative;
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .l-col-24 {
-        display: block;
+        display: flex;
         flex: 0 0 100%;
         max-width: 100%;
     }
     .l-col-12 {
-        display: block;
+        display: flex;
         flex: 0 0 50%;
         max-width: 50%;
     }
     .l-col-8 {
-        display: block;
+        display: flex;
         flex: 0 0 33.33%;
         max-width: 33.33%;
     }
     .l-col-6 {
-        display: block;
+        display: flex;
         flex: 0 0 25%;
         max-width: 25%;
     }
     .l-mar-b-10{
-        margin-bottom: 10px;
+        margin-bottom:5px;
     }
     .vdr {
         border: none;
@@ -213,11 +232,11 @@ export default {
     }
     .closeLayoutBtn{
         position: absolute;
-        top: -5px;
-        right: -5px;
+        top:2px;
+        right: 2px;
         width: 18px;
         height: 19px;
-        background: #FFFFFF;
+        //background: #FFFFFF;
         cursor: pointer;
     }
 </style>

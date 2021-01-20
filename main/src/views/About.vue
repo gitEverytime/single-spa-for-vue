@@ -76,10 +76,12 @@ import {apiAddress} from '../api/index.ts'
 export default {
     data(){
         return{
+        // @ts-ignore
             collapsed: false,
         }
     },
     mounted() {
+        // @ts-ignore
         this.onLoad();
         // let s: string = '111';
         // console.log(s)

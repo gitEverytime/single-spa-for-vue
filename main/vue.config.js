@@ -10,6 +10,27 @@ module.exports = {
         },
     },
     publicPath:process.env.VUE_APP_publicPath,
+    configureWebpack: {
+        resolve: { extensions: [".ts", ".tsx", ".js", ".json"] },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules/,
+                    enforce: 'pre',
+                    loader: 'tslint-loader'
+                },
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/],
+                    }
+                }
+            ]
+        }
+    },
     chainWebpack: config => {
         if(process.env.VUE_APP_SINGLERUN !== 'true') {
             config.externals(

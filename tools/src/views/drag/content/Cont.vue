@@ -25,17 +25,17 @@ export default {
         CompLModal
     },
     name: "Cont"
-    }
+}
 </script>
 
 <style scoped lang="scss">
-    .l_drag_cont{
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-    }
-    .square{
-        background-image: linear-gradient(90deg, rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%),linear-gradient(rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
-        background-size: 10px 10px;
-    }
+.l_drag_cont{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.square{
+    background-image: linear-gradient(90deg, rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%),linear-gradient(rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+    background-size: 10px 10px;
+}
 </style>

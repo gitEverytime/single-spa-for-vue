@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+// @ts-ignore
 import $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui'
 import 'jquery-ui-dist/jquery-ui.min.css'
@@ -70,7 +71,7 @@ export default {
                         let obj = JSON.parse(JSON.stringify(vm.obj))
                         obj.type = vm.item.type;
                         obj.width = '100%';
-                        obj.height = '100';
+                        obj.height = '50';
                         obj.operateLayer = vm.$store.state.operate_layer;
                         obj.name = vm.item.name + vm.sources.length;
                         obj.index = vm.sources.length;
