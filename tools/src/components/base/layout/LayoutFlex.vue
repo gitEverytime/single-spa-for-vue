@@ -14,10 +14,11 @@
         :class="'l_input' + index"
         :style="{
             width:'100%',
+            zIndex:'888'
         }"
     >
         <div
-            class="l-row"
+            class="l-row-wrap"
             @click="handleClickDragElement"
             :style="{
                 height:'100%'
@@ -26,40 +27,9 @@
                 'dotted':$store.state.is_show_dotted
             }"
         >
-            <div
-                v-for="(n,key) of Number(form.flex)"
-                :key="key"
-                class="l-col"
-                :class="
-                    [
-                        'l-col-' + (24/Number(form.flex)),
-                        'l-append-' + index + '-' + key,
-                        {
-                            'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key,
-                            'l-bor-right':$store.state.is_show_dotted
-                        }
-                    ]
-                "
-                @click="handleClickCol(key)"
-                :style="{
-                    height:'100%'
-                }"
-            >
-                <!--主界面：基础组件渲染盒子-->
-                <temp-base-draggable
-                    :className="'.l-append-' + index + '-' + key"
-                    v-if="$route.params.type === '0'"
-                >
-
-                </temp-base-draggable>
-                <!--表单界面：基础组件渲染盒子-->
-                <temp-base-no-draggable
-                    :className="'.l-append-' + index + '-' + key"
-                    v-if="$route.params.type === '1'"
-                >
-
-                </temp-base-no-draggable>
-            </div>
+            <!--            格子渲染-->
+            <temp-layout-col :form="form" :index="index"></temp-layout-col>
+            <!--            删除-->
             <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
                 <a-icon
                     type="delete"
@@ -73,8 +43,7 @@
 </template>
 
 <script lang="ts">
-import TempBaseDraggable from '../../toolbar/BaseDraggable.vue'
-import TempBaseNoDraggable from '../../toolbar/BaseNoDraggable.vue'
+import TempLayoutCol from '../../base/layout/LayoutCol.vue'
 // @ts-ignore
 import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 import source from '../../../ts/data_manage/source.ts'
@@ -82,8 +51,7 @@ export default {
     name: "LoyoutFlex",
     components:{
         VueDraggableResizable,
-        TempBaseDraggable,
-        TempBaseNoDraggable
+        TempLayoutCol
     },
     props:{
         form:{
@@ -106,6 +74,21 @@ export default {
         handleClickDel(index){
             let vm = this;
             vm.sources[index].isHide = true;
+        },
+        /**
+         * 增行
+         */
+        handleClickInsert(){
+            let vm = this;
+            let obj = JSON.parse(JSON.stringify(vm.form));
+            obj.type = 'l_flex';
+            obj.width = '100%';
+            obj.height = '50';
+            obj.flex =  vm.form.flex;
+            obj.operateLayer = vm.$store.state.operate_layer;
+            obj.name = vm.form.name + vm.sources.length;
+            obj.index = vm.sources.length;
+            vm.$set(vm.sources,vm.sources.length,vm.form)
         },
         /**
          * 点击选中当前组件，回传数据给公共管理库，记录
@@ -173,38 +156,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .l-row {
+    .l-row-wrap {
         display: flex;
         flex-flow: row wrap;
         position: relative;
-    }
-    .l-col{
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    .l-col-24 {
-        display: flex;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .l-col-12 {
-        display: flex;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .l-col-8 {
-        display: flex;
-        flex: 0 0 33.33%;
-        max-width: 33.33%;
-    }
-    .l-col-6 {
-        display: flex;
-        flex: 0 0 25%;
-        max-width: 25%;
     }
     .l-mar-b-10{
         margin-bottom:5px;
@@ -236,7 +191,16 @@ export default {
         right: 2px;
         width: 18px;
         height: 19px;
-        //background: #FFFFFF;
         cursor: pointer;
+        z-index: 999;
+    }
+    .insertLayoutBtn{
+        position: absolute;
+        top:2px;
+        left: 2px;
+        width: 18px;
+        height: 19px;
+        cursor: pointer;
+        z-index: 999;
     }
 </style>

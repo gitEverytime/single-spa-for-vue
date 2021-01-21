@@ -35,6 +35,7 @@ export default {
         checkRoot:'',                          //检查权限接口配置
         alias:'',                              //别名
         handles:[],                            //设置拖拽句柄
+        readonly:true
     },
     //布局容器组件数据源
     layout_scource:{

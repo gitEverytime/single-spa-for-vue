@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="base-draggable" style="width: 100%">
         <div  v-for="(form,index) in sources.filter(source => source.parentName === className)">
             <!-- 加载组件盒子-->
             <temp-load-base-element

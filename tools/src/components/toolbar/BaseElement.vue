@@ -30,6 +30,17 @@ import 'jquery-ui-dist/jquery-ui'
 import 'jquery-ui-dist/jquery-ui.min.css'
 import source from '../../ts/data_manage/source.ts'
 import tools_comp_source from "../../ts/data_manage/tools_comp_source.ts";
+// @ts-ignore
+import { message } from 'ant-design-vue';
+/**
+ *  全局提示属性调整
+ */
+message.config({
+    top: `100px`,
+    duration: 2,
+    maxCount: 3,
+    getContainer:() => document.getElementById('tools-project')
+});
 export default {
     name: "BaseElement",
     components:{
@@ -70,6 +81,19 @@ export default {
                     stop: function (event,ui) {
                         let left: string = Number(ui.offset.left).toFixed(2);
                         if(Number(left) > 240) {
+                            /**
+                             * 判断是否重复拖入同一个容器
+                             */
+                            if($(`.${vm.$store.state.layout_active_class}`).find('.base-draggable').html()){
+                                message.warning({
+                                    content:'容器里面只能拖入一个表单元素！',
+                                    getContainer:'.main-project'
+                                });
+                                return
+                            }
+                            /**
+                             * 给数据源添加表单元素
+                             */
                             let obj = JSON.parse(JSON.stringify(vm.obj))
                             obj.type = vm.item.type;
                             obj.width = vm.item.width;

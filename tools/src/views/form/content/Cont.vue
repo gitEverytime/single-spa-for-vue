@@ -5,7 +5,6 @@
             'square':$store.state.is_show_square
         }"
         :style="{
-            margin:$store.state.open_status ? '0 240px' : '0',
             backgroundColor:$store.state.deep_color,
             padding:'20px'
         }"

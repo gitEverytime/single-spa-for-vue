@@ -1,23 +1,22 @@
 <template>
     <div
-        @click="$emit('handleClickDraggable',index)"
         :style="{
             position:'relative'
         }"
     >
         <!-- 输入框-->
         <comp-l-input
-            v-if="form.type === 'l_input' && !form.isHide"
+            v-if="form.type === 'l_input'"
             :form="form"
             :index="index">
         </comp-l-input>
         <!-- 按钮-->
         <comp-l-button
-            v-if="form.type === 'l_btn'  && !form.isHide"
+            v-if="form.type === 'l_btn'"
             :form="form"
             :index="index">
         </comp-l-button>
-        <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)" v-if="!form.isHide">
+        <span class="closeLayoutBtn" title="删除" @click="handleClickDel()">
             <a-icon
                 type="close-circle"
                 :style="{
@@ -60,10 +59,11 @@ export default {
         /**
          * 删除
          */
-        handleClickDel(index){
+        handleClickDel(){
             let vm = this;
-            console.log(vm.sources)
-            vm.sources.splice(index,1);
+            vm.sources.forEach((source,index) => {
+                if(source.alias === vm.form.alias && source.index === vm.form.index) vm.sources.splice(index,1);
+            })
         },
     }
 }

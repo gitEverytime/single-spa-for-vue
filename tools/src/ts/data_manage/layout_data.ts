@@ -1,0 +1,52 @@
+const left_layout = [
+    {
+        name:'栅格布局',
+        type:'comp',
+        children:[
+            {
+                name:'一行两列',
+                type:'two_col',
+                class:'icon-yihanglianglie',
+                width:'70',
+                height:'34',
+                handles:[],
+                flex:2
+            },
+            {
+                name:'一行三列',
+                type:'three_col',
+                class:'icon-yihangsanlie',
+                width:'70',
+                height:'34',
+                handles:[],
+                flex:3
+            },
+            {
+                name:'一行四列',
+                type:'four_col',
+                class:'icon-yihangsilie',
+                width:'70',
+                height:'34',
+                handles:[],
+                flex:4
+            },
+        ]
+    },
+    {
+        name:'表格布局',
+        type:'table',
+        children:[
+
+        ]
+    },
+    {
+        name:'明细表',
+        type:'detail',
+        children:[
+
+        ]
+    },
+];
+export default {
+    left_layout
+}

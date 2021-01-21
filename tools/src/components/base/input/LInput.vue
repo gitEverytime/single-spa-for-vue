@@ -18,6 +18,7 @@
         <a-input
            v-model:value="form.value || ''"
            :disabled="form.isDisabled"
+           :readonly="form.readonly"
            @click="handleClickDragElement"
            :placeholder="form.placeholder || '请输入'"
         />

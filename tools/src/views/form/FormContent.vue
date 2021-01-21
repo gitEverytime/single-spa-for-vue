@@ -10,9 +10,11 @@
 </template>
 
 <script>
-import TempContentLeft from "../drag/content/Left";
+// import TempContentLeft from "../drag/content/Left";
 import TempContentRight from "../drag/content/Right";
 import TempContentCont from "../form/content/Cont";
+import TempContentLeft from '../form/content/Left.vue'
+// import TempContentRight from '../form/content/Right.vue'
 
 export default {
     name: "FormContent",

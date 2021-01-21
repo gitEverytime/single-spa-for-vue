@@ -1,5 +1,10 @@
 <template>
-    <div>
+    <div
+        class="base-draggable"
+        :style="{
+            width:'100%'
+        }"
+    >
         <vue-draggable-resizable
             v-for="(form,index) in sources.filter(source => source.parentName === className)"
             :key="form.type + index"

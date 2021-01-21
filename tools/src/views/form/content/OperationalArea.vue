@@ -34,9 +34,10 @@ export default {
 
 <style scoped lang="scss">
     .l-operational-area{
-        width: 800px;
+        width: 840px;
         height: 700px;
         background: #FFFFFF;
+        padding: 20px;
         -moz-box-shadow:-1px 10px 12px #0A0A0A; -webkit-box-shadow:-1px 10px 12px #0A0A0A; box-shadow:-1px 10px 12px #0A0A0A;
     }
     .square{

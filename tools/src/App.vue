@@ -1,6 +1,6 @@
 <template>
     <div
-        id="main"
+        id="tools-project"
         class="tools-project"
         :style="{
             height:'100%',
