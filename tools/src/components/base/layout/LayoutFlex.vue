@@ -24,7 +24,7 @@
                 height:'100%'
             }"
             :class="{
-                'dotted':$store.state.is_show_dotted
+
             }"
         >
             <!--            格子渲染-->

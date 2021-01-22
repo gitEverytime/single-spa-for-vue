@@ -23,7 +23,9 @@ export default {
         color:'',                              //字体颜色
         isLock:false,                          //是否锁定
         key:'',                                //数据库字段名称
-        value:'',                              //数据库字段值
+        value:'',                              //数据库字段值 string
+        value_arr:[],                          //数据库字段值 array
+        value_bool:false,                      //数据库字段值 boolean
         _key:'',                               //数据库字段外键名称
         _value:'',                             //数据库字段外键值
         parentName:'',                         //组件添加的父级class名称
@@ -31,11 +33,24 @@ export default {
         interactiveType:'no_function',         //交互类型
         operateLayer:'main',                   //拖拽操作的层级
         enumops:'',                            //数据字典接口配置
+        options:[                              //静态数据列表
+            {
+                text:'选项一',
+                label:'选项一',
+                value:1
+            },
+            {
+                text:'选项二',
+                label:'选项一',
+                value:2
+            }
+        ],
         required:false,                        //是否必填
         checkRoot:'',                          //检查权限接口配置
         alias:'',                              //别名
         handles:[],                            //设置拖拽句柄
-        readonly:true
+        readonly:true,                         //是否只读
+        disabled:true,                         //是否禁用
     },
     //布局容器组件数据源
     layout_scource:{

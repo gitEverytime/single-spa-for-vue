@@ -8,14 +8,13 @@
             :index="index"
         >
         </base-element>
-        <!-- 布局容器组件-->
-        <layout-element
-            v-else-if="type === 'layout'"
+        <base-element
+            v-if="type === 'business'"
             v-for="(item,index) in datas"
             :item="item"
             :index="index"
         >
-        </layout-element>
+        </base-element>
     </ul>
 </template>
 

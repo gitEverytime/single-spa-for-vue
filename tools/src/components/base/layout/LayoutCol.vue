@@ -15,7 +15,8 @@
                     'l-append-' + index + '-' + key,
                     {
                         'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key,
-                        'l-bor-right':$store.state.is_show_dotted
+                        'l-bor-right':$store.state.is_show_dotted,
+                        'dotted':$store.state.is_show_dotted
                     }
                 ]
             "
@@ -122,6 +123,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+    .vdr {
+        border: none;
+    }
     .l-row {
         display: flex;
         flex-flow: row wrap;
@@ -155,6 +159,12 @@ export default {
         display: flex;
         flex: 0 0 25%;
         max-width: 25%;
+    }
+    .dotted{
+        border:#999 dashed 1px;
+    }
+    .dotted:last-child{
+        border-left: none;
     }
     .activeColor{
         border: #009dff solid 2px !important;

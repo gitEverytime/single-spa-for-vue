@@ -4,6 +4,15 @@ const left_layout = [
         type:'comp',
         children:[
             {
+                name:'一行一列',
+                type:'yi_col',
+                class:'icon-yihangyilie',
+                width:'70',
+                height:'34',
+                handles:[],
+                flex:1
+            },
+            {
                 name:'一行两列',
                 type:'two_col',
                 class:'icon-yihanglianglie',
@@ -36,14 +45,28 @@ const left_layout = [
         name:'表格布局',
         type:'table',
         children:[
-
+            {
+                name:'表格',
+                type:'table',
+                class:'icon-table',
+                width:'70',
+                height:'34',
+                handles:[],
+            },
         ]
     },
     {
         name:'明细表',
         type:'detail',
         children:[
-
+            {
+                name:'明细表',
+                type:'detail_table',
+                class:'icon-mingxibiao',
+                width:'70',
+                height:'34',
+                handles:[],
+            },
         ]
     },
 ];

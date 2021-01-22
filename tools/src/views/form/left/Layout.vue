@@ -21,6 +21,25 @@
                 </li>
             </ul>
             <!--            Table布局-->
+            <ul v-if="comp.type === 'table'">
+                <li v-for="(item,index) in comp.children">
+                    <temp-table-layout
+                        :item="item"
+                        :index="index"
+                    >
+                    </temp-table-layout>
+                </li>
+            </ul>
+            <!--            明细表布局-->
+            <ul v-if="comp.type === 'detail'">
+                <li v-for="(item,index) in comp.children">
+                    <temp-detail-layout
+                        :item="item"
+                        :index="index"
+                    >
+                    </temp-detail-layout>
+                </li>
+            </ul>
         </a-collapse-panel>
     </a-collapse>
 </template>
@@ -28,10 +47,14 @@
 <script>
 import data from '../../../ts/data_manage/layout_data.ts'
 import TempCompLayout from './layout/CompLayout.vue'
+import TempDetailLayout from './layout/DetailLayout.vue'
+import TempTableLayout from './layout/TableLayout.vue'
 export default {
     name: "Layout",
     components:{
-       TempCompLayout
+        TempCompLayout,
+        TempDetailLayout,
+        TempTableLayout
     },
     data(){
         return{

@@ -18,7 +18,12 @@ const left_components = [
                 width:'200',
                 height:'34',
                 handles:['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']
+            },{
+                name:'文本框',
+                type:'l_textarea',
+                class:'icon-wenbenkuang'
             },
+
             {
                 name:'下拉框',
                 type:'l_select',
@@ -40,6 +45,21 @@ const left_components = [
                 class:'icon-fuxuankuang'
             },
             {
+                name:'日期',
+                type:'l_date',
+                class:'icon-date'
+            },
+            {
+                name:'上传',
+                type:'l_upload',
+                class:'icon-upload'
+            },
+            {
+                name:'步骤条',
+                type:'l_step',
+                class:'icon-step'
+            },
+            {
                 name:'选项卡',
                 type:'l_tab',
                 class:'icon-xuanxiangqia'
@@ -50,24 +70,9 @@ const left_components = [
                 class:'icon-shuzishurukuang'
             },
             {
-                name:'Table表格',
-                type:'l_table',
-                class:'icon-table'
-            },
-            {
                 name:'面包屑导航',
                 type:'l_home',
                 class:'icon-home'
-            },
-            {
-                name:'日期',
-                type:'l_date',
-                class:'icon-date'
-            },
-            {
-                name:'上传',
-                type:'l_upload',
-                class:'icon-upload'
             },
             {
                 name:'分页',
@@ -82,26 +87,14 @@ const left_components = [
         ]
     },
     {
-        name:'布局容器组件',
-        type:'layout',
+        name:'业务组件',
+        type:'business',
         children:[
             {
-                name:'栅格布局',
-                type:'l_flex',
-                class:'icon-zhagebuju'
+                name:'标题',
+                type:'l_title',
+                class:'icon-title'
             },
-            {
-                name:'响应式布局',
-                type:'l_flex',
-                class:'icon-xiangyingshibuju'
-            },
-        ]
-    },
-    {
-        name:'常用功能组件',
-        type:'',
-        children:[
-
         ]
     },
     {
