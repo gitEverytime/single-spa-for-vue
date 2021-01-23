@@ -42,7 +42,6 @@
                     :className="'.l-append-' + index + '-' + key"
                     v-if="$route.params.type === '1'"
                 >
-
                 </temp-base-no-draggable>
             </div>
         </vue-draggable-resizable>
@@ -161,10 +160,12 @@ export default {
         max-width: 25%;
     }
     .dotted{
-        border:#999 dashed 1px;
+        border-top:#999 dashed 1px;
+        border-left:#999 dashed 1px;
+        border-bottom:#999 dashed 1px;
     }
     .dotted:last-child{
-        border-left: none;
+        border-right: #999 dashed 1px;
     }
     .activeColor{
         border: #009dff solid 2px !important;

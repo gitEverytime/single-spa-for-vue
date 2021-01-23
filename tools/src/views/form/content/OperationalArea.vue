@@ -5,17 +5,21 @@
             'square':$store.state.is_show_square
         }"
     >
-        <!--布局组件渲染盒子-->
+        <!--        布局组件渲染盒子-->
         <temp-layout-render-box operate_layer="main"></temp-layout-render-box>
+        <!--        明细表组件渲染盒子-->
+        <temp-detail-render-box operate_layer="detail_table"></temp-detail-render-box>
     </div>
 </template>
 
 <script lang="ts">
 import TempLayoutRenderBox from '../../../components/toolbar/LayoutRenderBox.vue'
+import TempDetailRenderBox from '../../../components/toolbar/DetailRenderBox.vue'
 export default {
     name: "OperationalArea",
     components:{
-        TempLayoutRenderBox
+        TempLayoutRenderBox,
+        TempDetailRenderBox
     },
     data(){
         return {

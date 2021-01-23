@@ -151,7 +151,6 @@ export default {
         right: 30px;
         width: 18px;
         height: 19px;
-        //background: #FFFFFF;
         cursor: pointer;
     }
 </style>

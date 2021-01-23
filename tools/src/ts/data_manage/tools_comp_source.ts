@@ -87,5 +87,28 @@ export default {
         title:'Modal',                            //弹窗标题
         triggerElement:'',                        //触发元素
         visible:false,                            //弹窗是否显示
+    },
+    //
+    detail_source:{
+        type: '',
+        isHide: false,                         //是否隐藏
+        width: '',
+        height: '',
+        name: '',
+        top: '',
+        left: '',
+        position: 'absolute',
+        index: '',
+        isBold: false,
+        fontFamily:'',
+        padding:'',
+        margin:'',
+        borderRadius:'',
+        color:'',
+        isLock:false,
+        flex:4,                                  //栅格格数
+        children:[],
+        operateLayer:'detail_table',                     //拖拽操作的层级
+        cols:6
     }
 }

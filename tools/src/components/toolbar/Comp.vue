@@ -8,22 +8,24 @@
             :index="index"
         >
         </base-element>
-        <base-element
+        <business-element
             v-if="type === 'business'"
             v-for="(item,index) in datas"
             :item="item"
             :index="index"
         >
-        </base-element>
+        </business-element>
     </ul>
 </template>
 
 <script lang="ts">
 import BaseElement from './BaseElement.vue'
 import LayoutElement from './LayoutElement.vue'
+import BusinessElement from "./BusinessElement.vue";
 export default {
     name: "BaseComp",
     components:{
+        BusinessElement,
         BaseElement,
         LayoutElement
     },

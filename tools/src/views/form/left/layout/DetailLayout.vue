@@ -2,6 +2,7 @@
     <div
         class="l_detail_box"
         :class="'l_detail_element' + index"
+        ref="modal1"
     >
         <div
             class="l_detail_element"
@@ -22,6 +23,34 @@
                 {{item.name}}
             </span>
         </div>
+        <!--        弹窗-->
+        <a-modal
+            v-model="visible"
+            title="请输入列数"
+            @ok="handleOk"
+            :dialogStyle="{
+                textAlign:'left'
+            }"
+            cancelText="取消"
+            okText="确认"
+            okType="primary"
+            :getContainer="()=>$refs.modal1"
+        >
+            <a-form-model
+                :form="form"
+                ref="form"
+                :label-col="{ span: 4 }"
+                :wrapper-col="{ span: 12 }"
+                ::rules="rules"
+            >
+                <a-form-model-item label="列数" required prop="number">
+                    <a-input
+                        v-model.number="form.number"
+                        v-decorator="['note', { rules: [{ required: true, message: '请输入列数' }] }]"
+                    />
+                </a-form-model-item>
+            </a-form-model>
+        </a-modal>
     </div>
 </template>
 
@@ -44,8 +73,16 @@ export default {
     },
     data(){
         return{
-            sources:source.layout_info,
-            obj:tools_comp_source.layout_scource
+            sources:source.detail_table_info,
+            obj:tools_comp_source.detail_source,
+            visible:false,
+            formLayout: 'horizontal',
+            form: {
+                number:6
+            },
+            rules: {
+                number: [{ required: true, message: '请输入明细表的列数', trigger: 'change' }],
+            },
         }
     },
     watch: {
@@ -68,16 +105,11 @@ export default {
                 stop: function (event,ui) {
                     let left = Number(ui.offset.left).toFixed(2);
                     if(Number(left) > 240) {
-                        let obj = JSON.parse(JSON.stringify(vm.obj))
-                        obj.type = 'l_comp_table';
-                        obj.width = '100%';
-                        obj.height = '50';
-                        obj.flex =  vm.item.flex;
-                        obj.operateLayer = vm.$store.state.operate_layer;
-                        obj.name = vm.item.name + vm.sources.length;
-                        obj.index = vm.sources.length;
-                        vm.$set(vm.sources,vm.sources.length, obj);
-                        console.log(vm.sources)
+                        vm.visible =  true;
+                        // if() {
+                        //
+                        // }
+
                     }else{
                         //
                     }
@@ -86,7 +118,28 @@ export default {
         })
     },
     methods:{
-
+        /**
+         * 点击确认
+         */
+        handleOk(){
+            let vm = this;
+            vm.$refs.rules.validate(valid => {
+                if (valid) {
+                    let obj = JSON.parse(JSON.stringify(vm.obj))
+                    obj.type = 'l_detail_table';
+                    obj.width = '100%';
+                    obj.height = '50';
+                    obj.flex =  vm.item.flex;
+                    //obj.operateLayer = vm.$store.state.operate_layer;
+                    obj.name = vm.item.name + vm.sources.length;
+                    obj.index = vm.sources.length;
+                    vm.$set(vm.sources,vm.sources.length, obj);
+                } else {
+                    console.log('error submit!!');
+                    return false;
+                }
+            });
+        }
     },
     beforeDestroy() {
     }

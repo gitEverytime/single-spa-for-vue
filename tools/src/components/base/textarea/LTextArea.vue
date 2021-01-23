@@ -19,7 +19,7 @@
             v-model:value="form.value || ''"
             :disabled="form.isDisabled"
             :readonly="form.readonly"
-            :auto-size="{ minRows: 2, maxRows: 6 }"
+            :auto-size="{ minRows: 1, maxRows: 6 }"
             @click="handleClickDragElement"
             :placeholder="form.placeholder || '请输入'"
         />
