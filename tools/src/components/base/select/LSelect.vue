@@ -7,13 +7,14 @@
         }"
     >
         <span
-         :style="{
-            width:'100px',
-            fontSize:'12px',
-            fontWeight: form.isTextBold ? 'bold' : '400',
-            fontStyle: form.isTextItalics ? 'italic' : 'normal',
-            textDecoration: form.isTextDeleteLine ? 'line-through' : form.isTextUnderLine ? 'underline' : 'none'
-         }"
+            v-if="form.parentName.includes('append')"
+             :style="{
+                width:'100px',
+                fontSize:'12px',
+                fontWeight: form.isTextBold ? 'bold' : '400',
+                fontStyle: form.isTextItalics ? 'italic' : 'normal',
+                textDecoration: form.isTextDeleteLine ? 'line-through' : form.isTextUnderLine ? 'underline' : 'none'
+             }"
         >
             {{form.name}}
         </span>

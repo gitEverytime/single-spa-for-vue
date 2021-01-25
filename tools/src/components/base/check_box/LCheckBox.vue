@@ -7,6 +7,7 @@
         }"
     >
         <span
+            v-if="form.parentName.includes('append')"
             :style="{
                 width:'100px',
                 fontSize:'12px',

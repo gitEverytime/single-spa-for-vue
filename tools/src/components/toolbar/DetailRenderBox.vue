@@ -30,7 +30,7 @@ export default {
     data(){
         let vm = this;
         return{
-            sources:source.detail_table_info
+            sources:source.layout_info
         }
     },
     created(){

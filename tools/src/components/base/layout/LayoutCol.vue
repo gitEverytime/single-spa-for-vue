@@ -168,6 +168,6 @@ export default {
         border-right: #999 dashed 1px;
     }
     .activeColor{
-        border: #009dff solid 2px !important;
+        border: #009dff solid 1px !important;
     }
 </style>

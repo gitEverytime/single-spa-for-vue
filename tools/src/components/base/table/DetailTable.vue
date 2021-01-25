@@ -1,44 +1,25 @@
 <template>
-    <vue-draggable-resizable
-        v-if="!form.isHide"
-        @dragging="onDrag"
-        @resizing="onResize"
-        :onDrag="onDragStartCallback"
-        :onResize="onResizeCallback"
-        :min-height="34"
-        :h="Number(form.height)"
-        :x="Number(form.left)"
-        :y="Number(form.top)"
-        :handles="['bm']"
-        class="l_input l_handle_active l-mar-b-10"
-        :class="'l_input' + index"
+    <div
+        class="div"
+        @click="handleClickDragElement"
         :style="{
-            width:'100%',
-            zIndex:'888'
+            height:'100%'
+        }"
+        :class="{
+
         }"
     >
-        <div
-            class="div"
-            @click="handleClickDragElement"
-            :style="{
-                height:'100%'
-            }"
-            :class="{
-
-            }"
-        >
-            <comp-detail1></comp-detail1>
-            <!--            删除-->
-            <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
-                <a-icon
-                    type="delete"
-                    :style="{
-                        'color':$store.state.active_color
-                    }"
-                />
-            </span>
-        </div>
-    </vue-draggable-resizable>
+        <comp-detail1 :form="form" :index="index"></comp-detail1>
+        <!--            删除-->
+        <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
+            <a-icon
+                type="delete"
+                :style="{
+                    'color':$store.state.active_color
+                }"
+            />
+        </span>
+    </div>
 </template>
 
 <script lang="ts">
@@ -64,7 +45,7 @@ export default {
     data(){
         return{
             activeIndex:'',
-            sources:source.detail_table_info,
+            sources:source.layout_info,
         }
     },
     methods:{

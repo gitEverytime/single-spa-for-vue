@@ -73,7 +73,7 @@ export default {
     },
     data(){
         return{
-            sources:source.detail_table_info,
+            sources:source.layout_info,
             obj:tools_comp_source.detail_source,
             visible:false,
             formLayout: 'horizontal',
@@ -123,22 +123,15 @@ export default {
          */
         handleOk(){
             let vm = this;
-            vm.$refs.rules.validate(valid => {
-                if (valid) {
-                    let obj = JSON.parse(JSON.stringify(vm.obj))
-                    obj.type = 'l_detail_table';
-                    obj.width = '100%';
-                    obj.height = '50';
-                    obj.flex =  vm.item.flex;
-                    //obj.operateLayer = vm.$store.state.operate_layer;
-                    obj.name = vm.item.name + vm.sources.length;
-                    obj.index = vm.sources.length;
-                    vm.$set(vm.sources,vm.sources.length, obj);
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
+            let obj = JSON.parse(JSON.stringify(vm.obj))
+            obj.type = 'l_detail_table';
+            obj.width = '100%';
+            obj.height = '50';
+            obj.flex =  vm.item.flex;
+            obj.name = vm.item.name + vm.sources.length;
+            obj.index = vm.sources.length;
+            vm.$set(vm.sources,vm.sources.length, obj);
+            vm.visible = false;
         }
     },
     beforeDestroy() {
