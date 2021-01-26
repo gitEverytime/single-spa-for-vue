@@ -1,7 +1,7 @@
 export default {
     base_info:[     //基础组件数据
         {
-            type: 'l_title',                        //组件类型
+            type: 'l_title',                       //组件类型
             width: '',                             //宽
             height: '',                            //长
             name: '',                              //名称
@@ -16,7 +16,7 @@ export default {
             isTextUnderLine:false,                 //是否有下划线
             isTextDeleteLine:false,                //是否有删除线
             fontSize:'14px',                       //字体大小
-            fontFamily:'',                         //字体
+            fontFamily:'Microsoft YaHei',          //字体
             padding:'',                            //padding值
             margin:'',                             //margin值
             borderRadius:'',                       //圆角度
@@ -28,7 +28,7 @@ export default {
             value_bool:false,                      //数据库字段值 boolean
             _key:'',                               //数据库字段外键名称
             _value:'',                             //数据库字段外键值
-            parentName:'.l-append-0-0',                         //组件添加的父级class名称
+            parentName:'.l-append-0-0',            //组件添加的父级class名称
             btnType:'primary',                     //按钮类型
             interactiveType:'no_function',         //交互类型
             operateLayer:'main',                   //拖拽操作的层级

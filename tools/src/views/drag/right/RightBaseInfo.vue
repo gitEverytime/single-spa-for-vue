@@ -24,66 +24,28 @@
                 </div>
             </div>
         </div>
-        <a-collapse v-model="activeKey" :bordered="false">
-            <a-collapse-panel
-                key="1"
-                header="文本"
-                :style="{
-                    backgroundColor: $store.state.light_color,
-                    borderBottomColor: $store.state.deep_color,
-                }"
-            >
-                <div
-                    class="l_base_2"
-                    :style="{
-                        padding:'10px',
-                        textAlign:'left'
-                    }"
-                >
-                    <span
-                        :style="{
-                            color:$store.state.text_color,
-                        }"
-                    >字体样式:</span>
-                    <comp-blod-icon :obj="obj"></comp-blod-icon>
-                    <comp-italics-icon :obj="obj"></comp-italics-icon>
-                    <comp-under-line-icon :obj="obj"></comp-under-line-icon>
-                    <comp-delete-line-icon :obj="obj"></comp-delete-line-icon>
-                </div>
-            </a-collapse-panel>
-            <a-collapse-panel
-                key="2"
-                header="外形"
-                :style="{
-                    backgroundColor: $store.state.light_color,
-                    borderBottomColor: $store.state.deep_color,
-                }"
-            >
-               <div style="min-height: 250px">
-                   <comp-l-btn-recover :obj="obj" v-if="obj.type === 'l_btn'"></comp-l-btn-recover>
-               </div>
-            </a-collapse-panel>
-            <a-collapse-panel
-                key="3"
-                header="栅格定义"
-                :style="{
-                    backgroundColor: $store.state.light_color,
-                    borderBottomColor: $store.state.deep_color,
-                }"
-            >
-                <comp-grid-layout :obj="$store.state.comp_layout_info"></comp-grid-layout>
-            </a-collapse-panel>
-            <a-collapse-panel
-                key="4"
-                header="弹出样式"
-                :style="{
-                    backgroundColor: $store.state.light_color,
-                    borderBottomColor: $store.state.deep_color,
-                }"
-            >
-                <comp-l-modal-info></comp-l-modal-info>
-            </a-collapse-panel>
-        </a-collapse>
+<!--        <a-collapse v-model="activeKey" :bordered="false">-->
+<!--            <a-collapse-panel-->
+<!--                key="3"-->
+<!--                header="栅格定义"-->
+<!--                :style="{-->
+<!--                    backgroundColor: $store.state.light_color,-->
+<!--                    borderBottomColor: $store.state.deep_color,-->
+<!--                }"-->
+<!--            >-->
+<!--                <comp-grid-layout :obj="$store.state.comp_layout_info"></comp-grid-layout>-->
+<!--            </a-collapse-panel>-->
+<!--            <a-collapse-panel-->
+<!--                key="4"-->
+<!--                header="弹出样式"-->
+<!--                :style="{-->
+<!--                    backgroundColor: $store.state.light_color,-->
+<!--                    borderBottomColor: $store.state.deep_color,-->
+<!--                }"-->
+<!--            >-->
+<!--                <comp-l-modal-info></comp-l-modal-info>-->
+<!--            </a-collapse-panel>-->
+<!--        </a-collapse>-->
     </div>
 </template>
 

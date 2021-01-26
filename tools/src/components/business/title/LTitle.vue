@@ -1,6 +1,16 @@
 <template>
-    <div class="l-title-box">
-        <input v-model="form.value" placeholder="请输入标题" />
+    <div class="l-title-box" @click="handleClickDragElement">
+        <input
+            v-model="form.value"
+            placeholder="请输入标题"
+            :style="{
+                fontFamily:form.fontFamily,
+                fontSize:form.fontSize + 'px',
+                fontWeight: form.isTextBold ? 'bold' : '400',
+                fontStyle: form.isTextItalics ? 'italic' : 'normal',
+                textDecoration: form.isTextDeleteLine ? 'line-through' : form.isTextUnderLine ? 'underline' : 'none'
+            }"
+        />
     </div>
 </template>
 
@@ -28,7 +38,13 @@ export default {
     mounted() {
     },
     methods:{
-
+        /**
+         * 点击选中当前组件，回传数据给公共管理库，记录
+         */
+        handleClickDragElement(){
+            let vm = this;
+            vm.$store.commit('setCompBaseInfo',vm.form);
+        },
     },
     beforeDestroy() {
     }

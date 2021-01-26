@@ -130,6 +130,12 @@ export default {
             obj.flex =  vm.item.flex;
             obj.name = vm.item.name + vm.sources.length;
             obj.index = vm.sources.length;
+            obj.table_data.forEach((tr,r_index) => {
+                tr.time = Date.parse(new Date()) + r_index;
+                tr.children.forEach((td,d_index) => {
+                    td.time = Date.parse(new Date()) + d_index;
+                })
+            })
             vm.$set(vm.sources,vm.sources.length, obj);
             vm.visible = false;
         }

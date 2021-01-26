@@ -13,7 +13,7 @@
         <input
             v-if="!sources.filter(source => source.parentName === '.' + className).length"
             v-model="data.title"
-            :placeholder="index === 0 ? '明细区' : ''"
+            :placeholder="t_key === 0 ? '明细区' : ''"
         />
         <temp-base-no-draggable v-else :className="'.' + className"></temp-base-no-draggable>
     </div>
@@ -32,6 +32,9 @@ export default {
             type:Object,
         },
         index:{
+            type:Number
+        },
+        t_key:{
             type:Number
         },
         className:{
@@ -73,6 +76,7 @@ export default {
     }
     input{
         outline: none;
+        border: none;
         text-align: center;
         background: transparent;
         width: 100% ;

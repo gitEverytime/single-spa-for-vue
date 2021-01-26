@@ -5,9 +5,9 @@ module.exports = {
         host: '0.0.0.0',
         port:9010,
         //historyApiFallback: true,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
+        // headers: {
+        //     "Access-Control-Allow-Origin": "*",
+        // },
         proxy: {
             '/api': {
                 //正式环境：
@@ -40,29 +40,32 @@ module.exports = {
             ]
         }
     },
-    chainWebpack: config => {
-        // 不是独立运行的时候，将公共npm包抽离
-        if(process.env.VUE_APP_SINGLERUN !== 'true') {
-            config.externals(['vue',{'vue-router':'vueRouter'},{'element-ui':'elementUI'},'axios',{'vuex':'Vuex'},'hytools'])
-        }
-        config.plugin('script-ext-html')
-            .use(ScriptExtHtmlWebpackPlugin,[{
-                custom: {
-                    test: /app.*\.js$/,
-                    attribute: 'entry',
-                    value: true
-                }
-            }]);
-        config.output
-            .libraryTarget('umd')
-            .library('')
-            .jsonpFunction('webpackJsonp_goods')
-    },
-    css:{
-    loaderOptions:{
-        postcss:{
-            plugins:[require('postcss-plugin-namespace')('.tools-project',{ ignore: [ '*','#app' ] })]
-        }
-    }
-}
+    /**
+     * more spa
+     */
+    // chainWebpack: config => {
+    //     // 不是独立运行的时候，将公共npm包抽离
+    //     if(process.env.VUE_APP_SINGLERUN !== 'true') {
+    //         config.externals(['vue',{'vue-router':'vueRouter'},{'element-ui':'elementUI'},'axios',{'vuex':'Vuex'},'hytools'])
+    //     }
+    //     config.plugin('script-ext-html')
+    //         .use(ScriptExtHtmlWebpackPlugin,[{
+    //             custom: {
+    //                 test: /app.*\.js$/,
+    //                 attribute: 'entry',
+    //                 value: true
+    //             }
+    //         }]);
+    //     config.output
+    //         .libraryTarget('umd')
+    //         .library('')
+    //         .jsonpFunction('webpackJsonp_goods')
+    // },
+    // css:{
+    //     loaderOptions:{
+    //         postcss:{
+    //             plugins:[require('postcss-plugin-namespace')('.tools-project',{ ignore: [ '*','#app' ] })]
+    //         }
+    //     }
+    // }
 }

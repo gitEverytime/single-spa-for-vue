@@ -9,7 +9,7 @@
 
         }"
     >
-        <comp-detail1 :form="form" :index="index"></comp-detail1>
+        <comp-detail1 :form="form" :index="index" v-if="!form.isHide"></comp-detail1>
         <!--            删除-->
         <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
             <a-icon
@@ -54,7 +54,7 @@ export default {
          */
         handleClickDel(index){
             let vm = this;
-            vm.sources[index].isHide = true;
+            vm.sources[vm.index].isHide = true;
         },
         /**
          * 增行

@@ -5,12 +5,14 @@
             flexDirection:'row',
             alignItems:'center'
         }"
+        @click="handleClickDragElement"
     >
         <span
             v-if="form.parentName.includes('append')"
             :style="{
                 width:'100px',
-                fontSize:'12px',
+                fontFamily:form.fontFamily,
+                fontSize:form.fontSize + 'px',
                 fontWeight: form.isTextBold ? 'bold' : '400',
                 fontStyle: form.isTextItalics ? 'italic' : 'normal',
                 textDecoration: form.isTextDeleteLine ? 'line-through' : form.isTextUnderLine ? 'underline' : 'none'
@@ -20,7 +22,6 @@
            v-model:value="form.value || ''"
            :disabled="form.isDisabled"
            :readonly="form.readonly"
-           @click="handleClickDragElement"
            :placeholder="form.placeholder || '请输入'"
         />
     </div>

@@ -16,7 +16,7 @@ export default {
         isTextUnderLine:false,                 //是否有下划线
         isTextDeleteLine:false,                //是否有删除线
         fontSize:'14px',                       //字体大小
-        fontFamily:'',                         //字体
+        fontFamily:'Microsoft YaHei',          //字体
         padding:'',                            //padding值
         margin:'',                             //margin值
         borderRadius:'',                       //圆角度
@@ -154,35 +154,42 @@ export default {
             },
             {
                 type:'body',
+                time:'',
                 children:[
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     },
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     },
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     },
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     },
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     },
                     {
                         width:132,
                         height:40,
+                        time:'',
                         color:'#999999'
                     }
                 ]
