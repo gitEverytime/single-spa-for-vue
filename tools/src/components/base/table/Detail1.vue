@@ -1,75 +1,98 @@
 <template>
-    <div class="l-detail-table" >
-        <table border="1" style="border: #999999 dashed 1px">
-            <tr v-for="(tr,r_index) in form.table_data" class="tr">
-                <td
-                    v-for="(td,t_key) in tr.children"
-                    :style="{
-                        width:td.width + 'px',
-                        height:td.height + 'px',
-                        border:`${td.color} dashed 1px`
-                    }"
-                    :class="[
-                        'td',
-                        'l-td-' + tr.time + '-' + td.time
-                    ]"
-                    :row_index="r_index"
-                    :col_index="t_key"
-                    @contextmenu.prevent="mouseclick(r_index,t_key,tr.type,td.type)"
+    <div class="l-detail-table-box">
+        <div class="l-detail-table" >
+            <table border="1" style="border: #999999 dashed 1px">
+                <tr
+                    v-for="(tr,r_index) in form.table_data"
+                    class="tr"
+                    :id="'selectable' + r_index"
                 >
-                    <a-dropdown :trigger="['contextmenu']">
-                        <!--                    head-->
-                        <comp-detail-head-td
-                           v-if="tr.type === 'head'"
-                           :data="td"
-                           :t_key="t_key"
-                           :index="index"
-                        ></comp-detail-head-td>
-                        <!--                    body-->
-                        <comp-detail-body-td
-                           v-if="tr.type === 'body'"
-                           :data="td"
-                           :t_key="t_key"
-                           :index="index"
-                           :className="'l-td-' + tr.time + '-' + td.time"
-                        ></comp-detail-body-td>
-                        <!--                    foot-->
-                        <comp-detail-foot-td
-                           v-if="tr.type === 'foot'"
-                           :data="td"
-                           :t_key="t_key"
-                           :index="index"
-                        ></comp-detail-foot-td>
-                        <a-menu slot="overlay" @click="onClick">
-                            <a-menu-item key="1">
-                                插入行(在上方)
-                            </a-menu-item>
-                            <a-menu-item key="2">
-                                插入行(在下方)
-                            </a-menu-item>
-                            <a-menu-item key="3">
-                                插入列(在左侧)
-                            </a-menu-item>
-                            <a-menu-item key="4">
-                                插入列(在右侧)
-                            </a-menu-item>
-                            <a-menu-item key="5">
-                                删除行
-                            </a-menu-item>
-                            <a-menu-item key="6">
-                                删除列
-                            </a-menu-item>
-                            <a-menu-item key="7">
-                                行高
-                            </a-menu-item>
-                            <a-menu-item key="8">
-                                列宽
-                            </a-menu-item>
-                        </a-menu>
-                    </a-dropdown>
-                </td>
-            </tr>
-        </table>
+                    <td
+                        v-for="(td,t_key) in tr.children"
+                        :style="{
+                            width:td.width + 'px',
+                            height:td.height + 'px',
+                            border:`${td.color} dashed 1px`
+                        }"
+                        :class="[
+                            'td',
+                            'l-td-' + tr.time + '-' + td.time,
+                            'ui-widget-content'
+                        ]"
+                        :row_index="r_index"
+                        :col_index="t_key"
+                        @contextmenu.prevent="mouseclick(r_index,t_key,tr.type,td.type)"
+                    >
+                        <a-dropdown :trigger="['contextmenu']">
+                            <!--                    head-->
+                            <comp-detail-head-td
+                                v-if="tr.type === 'head'"
+                                :data="td"
+                                :t_key="t_key"
+                                :index="index"
+                            ></comp-detail-head-td>
+                            <!--                    body-->
+                            <comp-detail-body-td
+                                v-if="tr.type === 'body'"
+                                :data="td"
+                                :t_key="t_key"
+                                :index="index"
+                                :className="'l-td-' + tr.time + '-' + td.time"
+                            ></comp-detail-body-td>
+                            <!--                    foot-->
+                            <comp-detail-foot-td
+                                v-if="tr.type === 'foot'"
+                                :data="td"
+                                :t_key="t_key"
+                                :index="index"
+                            ></comp-detail-foot-td>
+                            <a-menu slot="overlay" @click="onClick">
+                                <a-menu-item key="1">
+                                    插入行(在上方)
+                                </a-menu-item>
+                                <a-menu-item key="2">
+                                    插入行(在下方)
+                                </a-menu-item>
+                                <a-menu-item key="3">
+                                    插入列(在左侧)
+                                </a-menu-item>
+                                <a-menu-item key="4">
+                                    插入列(在右侧)
+                                </a-menu-item>
+                                <a-menu-item key="5">
+                                    删除行
+                                </a-menu-item>
+                                <a-menu-item key="6">
+                                    删除列
+                                </a-menu-item>
+                                <a-menu-item key="7">
+                                    行高
+                                </a-menu-item>
+                                <a-menu-item key="8">
+                                    列宽
+                                </a-menu-item>
+                            </a-menu>
+                        </a-dropdown>
+                    </td>
+                </tr>
+            </table>
+            <!--        set height-->
+            <comp-set-height-modal
+                v-if="visibleHeight.show"
+                :form="form"
+                :visibleHeight="visibleHeight"
+                :t_index="t_index"
+                :t_key="t_key"
+            ></comp-set-height-modal>
+            <!--        set width-->
+            <comp-set-width-modal
+                v-if="visibleWidth.show"
+                :form="form"
+                :visibleWidth="visibleWidth"
+                :t_index="t_index"
+                :t_key="t_key"
+            ></comp-set-width-modal>
+        </div>
         <span class="l-detail-head-icon">
              <i
                  class="iconfont icon-mingxibiao"
@@ -93,12 +116,14 @@
 
 <script>
 
-import 'jquery-ui-dist/jquery-ui'
-import 'jquery-ui-dist/jquery-ui.min.css'
-import CompDetailHeadTd from './detail/DetailHeadTd.vue'
-import CompDetailBodyTd from './detail/DetailBodyTd.vue'
-import CompDetailFootTd from './detail/DetailFootTd.vue'
-import source from '../../../ts/data_manage/source.ts'
+import 'jquery-ui-dist/jquery-ui';
+import 'jquery-ui-dist/jquery-ui.min.css';
+import CompDetailHeadTd from './detail/DetailHeadTd.vue';
+import CompDetailBodyTd from './detail/DetailBodyTd.vue';
+import CompDetailFootTd from './detail/DetailFootTd.vue';
+import CompSetHeightModal from '../../../components/base/modal/LSetHeightModal.vue';
+import CompSetWidthModal from '../../../components/base/modal/LSetWidthModal.vue'
+import source from '../../../ts/data_manage/source.ts';
 import $ from "jquery";
 // @ts-ignore
 import { message } from 'ant-design-vue';
@@ -116,7 +141,9 @@ export default {
     components:{
         CompDetailHeadTd,
         CompDetailBodyTd,
-        CompDetailFootTd
+        CompDetailFootTd,
+        CompSetHeightModal,
+        CompSetWidthModal
     },
     props:{
         form:{
@@ -132,7 +159,13 @@ export default {
             t_index:null,
             t_key:null,
             r_type:null,
-            t_type:null
+            t_type:null,
+            visibleHeight:{
+                show:false
+            },
+            visibleWidth:{
+                show:false
+            }
         }
     },
     created() {
@@ -141,6 +174,7 @@ export default {
         let vm = this;
         vm.$nextTick(() => {
             vm.resizeable_func();
+            $( "#selectable2" ).selectable();
         })
     },
     methods:{
@@ -166,7 +200,7 @@ export default {
                                 vm.form.table_data.forEach((form,t_index) => {
                                     form.children.forEach((child,t_key) => {
                                         if(key === t_key) {
-                                            child.width = ui.size.width.toFixed(2);
+                                            child.width = Number.parseInt(ui.size.width);
                                         }
                                     });
                                 });
@@ -175,7 +209,7 @@ export default {
                                  * 给 这一行的每个td 赋相同的值:高度变化
                                  */
                                 tr.children.forEach((child,key) => {
-                                    child.height = ui.size.height.toFixed(2);
+                                    child.height = Number.parseInt(ui.size.height);
                                 });
                             }
                         }
@@ -248,9 +282,7 @@ export default {
                     })
                     break;
                 case '5':   //删除行
-                    if(
-                        vm.form.table_data.filter(data => data.type === tr.type).length === 1
-                    ) {
+                    if(vm.form.table_data.filter(data => data.type === tr.type).length === 1) {
                         message.warning({
                             content:'请保持明细表原始表格形态！',
                             getContainer:'.main-project'
@@ -260,13 +292,15 @@ export default {
                     vm.form.table_data.splice(vm.t_index,1);
                     break;
                 case '6':   //删除列
-                    vm.form.table_data[vm.t_index].children.splice(vm.t_key,1);
+                    vm.form.table_data.forEach((tr,r_index) => {
+                        tr.children.splice(vm.t_key,1);
+                    })
                     break;
                 case '7':   //行高
-
+                    vm.visibleHeight.show = true;
                     break;
                 case '8':   //列宽
-
+                    vm.visibleWidth.show = true;
                     break;
             }
             /**
@@ -283,6 +317,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+    .l-detail-table-box{
+        overflow: hidden;
+        position: relative;
+    }
     .l-detail-table{
         overflow-x: scroll;
         overflow-y: hidden;

@@ -1,8 +1,9 @@
 <template>
-    <div class="l-title-box" @click="handleClickDragElement">
+    <div class="l-title-box" @click="handleClickDragElement" v-if="!sources.filter(source => source.parentName === form.parentName).length">
         <input
             v-model="form.value"
             placeholder="请输入标题"
+            :readonly="form.readonly"
             :style="{
                 fontFamily:form.fontFamily,
                 fontSize:form.fontSize + 'px',
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import source from '@/ts/data_manage/source.ts'
 export default {
     name: "LTitle",
     components:{
@@ -30,7 +32,7 @@ export default {
     },
     data(){
         return{
-
+            sources:source.base_info,
         }
     },
     created() {
@@ -53,11 +55,14 @@ export default {
 
 <style scoped lang="scss">
     .l-title-box{
+        width: 100% ;
+        height: 100%;
         input{
             outline: none;
             text-align: center;
             background: transparent;
             width: 100% ;
+            height: 100%;
             word-wrap: break-word;
             word-break: break-all;
             overflow: hidden;

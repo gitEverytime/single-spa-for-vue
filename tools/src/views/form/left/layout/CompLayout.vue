@@ -76,8 +76,17 @@ export default {
                         obj.operateLayer = vm.$store.state.operate_layer;
                         obj.name = vm.item.name + vm.sources.length;
                         obj.index = vm.sources.length;
+                        obj.time = Date.parse(new Date());
+                        /**
+                         * 循环生成列
+                         */
+                        for(let i = 0; i < obj.flex; i ++){
+                            vm.$set(obj.children,obj.children.length, {
+                                width:'',
+                                time:Date.parse(new Date()) + i
+                            })
+                        }
                         vm.$set(vm.sources,vm.sources.length, obj);
-                        console.log(vm.sources)
                     }else{
                         //
                     }

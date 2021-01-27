@@ -1,7 +1,7 @@
 <template>
     <div  class="l-row">
         <vue-draggable-resizable
-            v-for="(n,key) of Number(form.flex)"
+            v-for="(child,key) of form.children"
             @dragging="onDrag"
             @resizing="onResize"
             :h="Number(form.height)"
@@ -14,7 +14,7 @@
                     'l-col-' + (24/Number(form.flex)),
                     'l-append-' + index + '-' + key,
                     {
-                        'activeColor': $store.state.layout_active_class === 'l-append-' + index + '-' + key,
+                        'activeColor': $store.state.layout_active_class === 'l-append-' + form.time + '-' + child.time,
                         'l-bor-right':$store.state.is_show_dotted,
                         'dotted':$store.state.is_show_dotted
                     }
@@ -23,7 +23,7 @@
         >
             <div
                 :key="key"
-                @click="handleClickCol(key)"
+                @click="handleClickCol(child)"
                 class="l-col-box"
                 :style="{
                     height:form.height + 'px',
@@ -32,14 +32,14 @@
             >
                 <!--主界面：基础组件渲染盒子-->
                 <temp-base-draggable
-                    :className="'.l-append-' + index + '-' + key"
+                    :className="'.l-append-' + form.time + '-' + child.time"
                     v-if="$route.params.type === '0'"
                 >
 
                 </temp-base-draggable>
                 <!--表单界面：基础组件渲染盒子-->
                 <temp-base-no-draggable
-                    :className="'.l-append-' + index + '-' + key"
+                    :className="'.l-append-' + form.time + '-' + child.time"
                     v-if="$route.params.type === '1'"
                 >
                 </temp-base-no-draggable>
@@ -88,9 +88,9 @@ export default {
         /**
          * 点击选中当前格子
          */
-        handleClickCol(key){
+        handleClickCol(child){
             let vm = this;
-            vm.$store.commit('setLayoutActiveClass','l-append-' + vm.index + '-' + key);
+            vm.$store.commit('setLayoutActiveClass','l-append-' + vm.form.time + '-' + child.time);
         },
         /**
          * 缩放回调

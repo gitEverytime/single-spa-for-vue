@@ -66,7 +66,7 @@ export default {
                 appendTo: ".tools-project",
                 zIndex:1000,
                 stop: function (event,ui) {
-                let left = Number(ui.offset.left).toFixed(2);
+                    let left = Number(ui.offset.left).toFixed(2);
                     if(Number(left) > 240) {
                         let obj = JSON.parse(JSON.stringify(vm.obj))
                         obj.type = vm.item.type;
@@ -75,7 +75,9 @@ export default {
                         obj.operateLayer = vm.$store.state.operate_layer;
                         obj.name = vm.item.name + vm.sources.length;
                         obj.index = vm.sources.length;
+                        // obj.sources
                         vm.$set(vm.sources,vm.sources.length, obj);
+                        console.log(obj)
                     }else{
                         //
                     }

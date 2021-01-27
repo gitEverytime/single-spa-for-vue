@@ -71,7 +71,9 @@ export default {
         color:'',
         isLock:false,
         flex:4,                                  //栅格格数
-        children:[],
+        children:[
+
+        ],
         operateLayer:'main',                     //拖拽操作的层级
     },
     //弹窗容器组件数据源
