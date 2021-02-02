@@ -20,6 +20,12 @@
                 :index="index"
             >
             </comp-detail-table>
+            <!--            普通表布局-->
+            <comp-custom-table
+                v-if="form.type === 'l_table' && operate_layer === form.operateLayer"
+                :form="form"
+                :index="index"
+            ></comp-custom-table>
         </div>
     </div>
 </template>
@@ -27,7 +33,8 @@
 import source from '../../ts/data_manage/source.ts';
 import tools_comp_source from "@/ts/data_manage/tools_comp_source";
 import CompLayoutFlex from '../../components/base/layout/LayoutFlex.vue';
-import CompDetailTable from '../../components/base/table/DetailTable.vue';
+import CompDetailTable from '../base/table/detail/LDetailTable.vue';
+import CompCustomTable from '../base/table/table/LCustomTable.vue'
 import $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
 import 'jquery-ui-dist/jquery-ui.min.css';
@@ -35,7 +42,8 @@ export default {
     name: "LayoutRenderBox",
     components:{
         CompLayoutFlex,
-        CompDetailTable
+        CompDetailTable,
+        CompCustomTable
     },
     props:{
         operate_layer:{

@@ -9,7 +9,12 @@
 
         }"
     >
-        <comp-detail1 :form="form" :index="index" v-if="!form.isHide"></comp-detail1>
+
+        <comp-l-table
+            :form="form"
+            :index="index"
+        >
+        </comp-l-table>
         <!--            删除-->
         <span class="closeLayoutBtn" title="删除" @click="handleClickDel(index)">
             <a-icon
@@ -23,16 +28,13 @@
 </template>
 
 <script lang="ts">
+import CompLTable from './LTable.vue'
 // @ts-ignore
-import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
-// @ts-ignore
-import source from '../../../ts/data_manage/source.ts'
-import CompDetail1 from '../../../components/base/table/Detail1.vue'
+import source from '../../../../ts/data_manage/source.ts'
 export default {
     name: "LoyoutFlex",
     components:{
-        VueDraggableResizable,
-        CompDetail1
+        CompLTable
     },
     props:{
         form:{
@@ -54,7 +56,7 @@ export default {
          */
         handleClickDel(index){
             let vm = this;
-            vm.sources[vm.index].isHide = true;
+            vm.sources.splice(index,1);
         },
         /**
          * 增行

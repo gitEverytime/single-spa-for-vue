@@ -1,9 +1,12 @@
 <template>
-    <div class="l-title-box" @click="handleClickDragElement" v-if="!sources.filter(source => source.parentName === form.parentName).length">
+    <div class="l-title-box" @click="handleClickDragElement" @dblclick="handleDblClickElement">
+        <span v-if="form.readonly">请输入标题</span>
         <input
+            v-else
             v-model="form.value"
             placeholder="请输入标题"
             :readonly="form.readonly"
+            @blur="handleFocusElement"
             :style="{
                 fontFamily:form.fontFamily,
                 fontSize:form.fontSize + 'px',
@@ -47,6 +50,20 @@ export default {
             let vm = this;
             vm.$store.commit('setCompBaseInfo',vm.form);
         },
+        /**
+         * 双击
+         */
+        handleDblClickElement(){
+            let vm = this;
+            vm.form.readonly = false;
+        },
+        /**
+         * 失去焦点
+         */
+        handleFocusElement(){
+            let vm = this;
+            vm.form.readonly = true;
+        }
     },
     beforeDestroy() {
     }
@@ -57,6 +74,10 @@ export default {
     .l-title-box{
         width: 100% ;
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         input{
             outline: none;
             text-align: center;

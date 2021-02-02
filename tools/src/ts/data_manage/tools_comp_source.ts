@@ -90,7 +90,58 @@ export default {
         triggerElement:'',                        //触发元素
         visible:false,                            //弹窗是否显示
     },
-    //
+    /**
+     * 表格数据源
+     */
+    table_source: {
+        type: '',
+        isHide: false,                         //是否隐藏
+        width: '',
+        height: '',
+        name: '',
+        top: '',
+        left: '',
+        position: 'absolute',
+        index: '',
+        isBold: false,
+        fontFamily: '',
+        padding: '',
+        margin: '',
+        borderRadius: '',
+        color: '',
+        isLock: false,
+        flex: 4,                                  //栅格格数
+        children: [],
+        operateLayer: 'main',                     //拖拽操作的层级
+        cols: 6,
+        table_data: [
+            // {
+            //     children:[
+            //         {
+            //
+            //         },
+            //         {
+            //
+            //         },
+            //         {
+            //
+            //         },
+            //         {
+            //
+            //         },
+            //         {
+            //
+            //         },
+            //         {
+            //
+            //         }
+            //     ]
+            // }
+        ],
+    },
+    /**
+     * 明细表数据源
+     */
     detail_source:{
         type: '',
         isHide: false,                         //是否隐藏
@@ -202,32 +253,50 @@ export default {
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     },
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     },
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     },
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     },
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     },
                     {
                         width:132,
                         height:40,
-                        color:'#999999'
+                        color:'#999999',
+                        show:false,
+                        cols:null,
+                        showTd:true
                     }
                 ]
             }

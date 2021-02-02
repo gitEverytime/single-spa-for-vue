@@ -6,6 +6,10 @@
         <comp-l-italics-icon :obj="comp_base_info"></comp-l-italics-icon>
         <comp-l-under-line-icon :obj="comp_base_info"></comp-l-under-line-icon>
         <comp-l-delete-line-icon :obj="comp_base_info"></comp-l-delete-line-icon>
+        <comp-l-l-font-color-icon :obj="comp_base_info"></comp-l-l-font-color-icon>
+        <comp-l-align-left :obj="comp_base_info"></comp-l-align-left>
+        <comp-l-align-center :obj="comp_base_info"></comp-l-align-center>
+        <comp-l-align-right :obj="comp_base_info"></comp-l-align-right>
     </div>
 </template>
 
@@ -19,6 +23,10 @@ import CompLUnderLineIcon from '../../../components/base/icons/LUnderLineIcon.vu
 import CompLDeleteLineIcon from '../../../components/base/icons/LDeleteLineIcon.vue'
 import CompLFontFamily from '../../../components/business/font/LFontFamily.vue'
 import CompLFontSize from '../../../components/business/font/LFontSize.vue'
+import CompLAlignCenter from '../../base/icons/LAlighCenterIcon.vue'
+import CompLAlignLeft from '../../base/icons/LAlignLeftIcon.vue'
+import CompLAlignRight from '../../base/icons/LAlignRightIcon.vue'
+import CompLLFontColorIcon from '../../base/icons/LFontColorIcon.vue'
 export default {
     name: "HeadCont",
     components:{
@@ -30,7 +38,11 @@ export default {
         CompLDeleteLineIcon,
         CompLUnderLineIcon,
         CompLFontFamily,
-        CompLFontSize
+        CompLFontSize,
+        CompLAlignCenter,
+        CompLAlignLeft,
+        CompLAlignRight,
+        CompLLFontColorIcon
     },
     computed:{
         comp_base_info(){

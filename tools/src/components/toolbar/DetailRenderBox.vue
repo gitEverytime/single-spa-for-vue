@@ -16,7 +16,7 @@
 </template>
 <script>
 import source from '../../ts/data_manage/source.ts';
-import CompDetailTable from '../../components/base/table/DetailTable.vue';
+import CompDetailTable from '../base/table/detail/LDetailTable.vue';
 export default {
     name: "LayoutRenderBox",
     components:{

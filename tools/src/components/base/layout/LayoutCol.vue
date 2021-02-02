@@ -1,17 +1,14 @@
 <template>
     <div  class="l-row">
-        <vue-draggable-resizable
+        <div
             v-for="(child,key) of form.children"
-            @dragging="onDrag"
-            @resizing="onResize"
-            :h="Number(form.height)"
-            :onDrag="onDragStartCallback"
-            :min-height="34"
-            :handles="[]"
-            class="l-col"
+            :key="key"
+            @click="handleClickCol(child)"
+            class="l-col-box"
             :class="
                 [
                     'l-col-' + (24/Number(form.flex)),
+                    'l-col-box' + form.time,
                     'l-append-' + index + '-' + key,
                     {
                         'activeColor': $store.state.layout_active_class === 'l-append-' + form.time + '-' + child.time,
@@ -20,36 +17,33 @@
                     }
                 ]
             "
+            :style="{
+                height:'100%',
+                width:'100%'
+            }"
         >
-            <div
-                :key="key"
-                @click="handleClickCol(child)"
-                class="l-col-box"
-                :style="{
-                    height:form.height + 'px',
-                    width:'100%'
-                }"
+            <!--主界面：基础组件渲染盒子-->
+            <temp-base-draggable
+                :className="'.l-append-' + form.time + '-' + child.time"
+                v-if="$route.params.type === '0'"
             >
-                <!--主界面：基础组件渲染盒子-->
-                <temp-base-draggable
-                    :className="'.l-append-' + form.time + '-' + child.time"
-                    v-if="$route.params.type === '0'"
-                >
 
-                </temp-base-draggable>
-                <!--表单界面：基础组件渲染盒子-->
-                <temp-base-no-draggable
-                    :className="'.l-append-' + form.time + '-' + child.time"
-                    v-if="$route.params.type === '1'"
-                >
-                </temp-base-no-draggable>
-            </div>
-        </vue-draggable-resizable>
+            </temp-base-draggable>
+            <!--表单界面：基础组件渲染盒子-->
+            <temp-base-no-draggable
+                :className="'.l-append-' + form.time + '-' + child.time"
+                v-if="$route.params.type === '1'"
+            >
+            </temp-base-no-draggable>
+        </div>
     </div>
 </template>
 
 <script>
 // @ts-ignore
+import $ from 'jquery'
+import 'jquery-ui-dist/jquery-ui';
+import 'jquery-ui-dist/jquery-ui.min.css';
 import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 import TempBaseDraggable from '../../toolbar/BaseDraggable.vue'
 import TempBaseNoDraggable from '../../toolbar/BaseNoDraggable.vue'
@@ -70,10 +64,24 @@ export default {
     },
     data(){
         return{
-
+            child:{}
         }
     },
     mounted() {
+        let vm = this;
+        vm.$nextTick(() => {
+            // $(`.l-col-box`).resizable({
+            //     zIndex:99,
+            //     autoHide: true,
+            //     ghost: true,
+            //     opacity:0,
+            //     handles: "e",
+            //     minHeight: 30,
+            //     stop: function (event,ui) {
+            //         // vm.form.height = Number.parseInt(ui.size.height);
+            //     }
+            // })
+        })
     },
     created() {
     },
@@ -90,32 +98,8 @@ export default {
          */
         handleClickCol(child){
             let vm = this;
+            vm.child = child;
             vm.$store.commit('setLayoutActiveClass','l-append-' + vm.form.time + '-' + child.time);
-        },
-        /**
-         * 缩放回调
-         * @param x
-         * @param y
-         * @param width
-         * @param height
-         */
-        onResize(x, y, width, height) {
-            let vm = this;
-        },
-        /**
-         * 拖拽回调
-         * @param x
-         * @param y
-         */
-        onDrag(x, y) {
-            let vm = this;
-        },
-        /**
-         * 禁止拖拽
-         * @param ev
-         */
-        onDragStartCallback(ev){
-            return false;
         },
     }
 }
