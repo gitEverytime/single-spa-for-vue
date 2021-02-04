@@ -5,9 +5,9 @@
             :key="key"
             @click="handleClickCol(child)"
             class="l-col-box"
+            :id="'l-col-box' + child.time"
             :class="
                 [
-                    'l-col-' + (24/Number(form.flex)),
                     'l-col-box' + form.time,
                     'l-append-' + index + '-' + key,
                     {
@@ -19,7 +19,9 @@
             "
             :style="{
                 height:'100%',
-                width:'100%'
+                width:100/Number(form.flex) + '%',
+                padding:form.padding + 'px' || 0,
+                margin:form.margin + 'px' || 0
             }"
         >
             <!--主界面：基础组件渲染盒子-->
@@ -27,7 +29,6 @@
                 :className="'.l-append-' + form.time + '-' + child.time"
                 v-if="$route.params.type === '0'"
             >
-
             </temp-base-draggable>
             <!--表单界面：基础组件渲染盒子-->
             <temp-base-no-draggable
@@ -69,19 +70,21 @@ export default {
     },
     mounted() {
         let vm = this;
-        vm.$nextTick(() => {
-            // $(`.l-col-box`).resizable({
-            //     zIndex:99,
-            //     autoHide: true,
-            //     ghost: true,
-            //     opacity:0,
-            //     handles: "e",
-            //     minHeight: 30,
-            //     stop: function (event,ui) {
-            //         // vm.form.height = Number.parseInt(ui.size.height);
-            //     }
-            // })
-        })
+        // vm.form.children.forEach((child,key) => {
+        //     $(`#l-col-box${child.time}`).resizable({
+        //         zIndex:99,
+        //         autoHide: true,
+        //         ghost: true,
+        //         opacity:0,
+        //         handles: "e",
+        //         minHeight: 30,
+        //         stop: function (event,ui) {
+        //             console.log(ui)
+        //
+        //             // vm.form.height = Number.parseInt(ui.size.height);
+        //         }
+        //     })
+        // })
     },
     created() {
     },

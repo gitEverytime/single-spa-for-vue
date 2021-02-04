@@ -1,6 +1,6 @@
 <template>
     <div v-show="isShowColors" class="color-select-layer">
-        <sketch-picker v-model="color" @input="colorValueChange"></sketch-picker>
+        <sketch-picker v-model="obj.color" @input="colorValueChange"></sketch-picker>
     </div>
 </template>
 <script>
@@ -8,6 +8,11 @@ import { Sketch } from 'vue-color'
 export default {
     components: {
         'sketch-picker': Sketch
+    },
+    props:{
+        obj:{
+            type:Object
+        }
     },
     data () {
         return {
@@ -23,7 +28,7 @@ export default {
         // 颜色值改变事件处理
         colorValueChange (val) {
             // 取颜色对象的十六进制值
-            this.color = val.hex
+            this.obj.color = val.hex
         }
     }
 }

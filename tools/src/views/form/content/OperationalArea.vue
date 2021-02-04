@@ -4,6 +4,9 @@
         :class="{
             'square':$store.state.is_show_square
         }"
+        :style="{
+             width: form_info.width + 'px'
+        }"
     >
         <!--        布局组件渲染盒子-->
         <temp-layout-render-box operate_layer="main"></temp-layout-render-box>
@@ -13,6 +16,7 @@
 <script lang="ts">
 import TempLayoutRenderBox from '../../../components/toolbar/LayoutRenderBox.vue'
 import TempDetailRenderBox from '../../../components/toolbar/DetailRenderBox.vue'
+import source from "../../../ts/data_manage/source";
 export default {
     name: "OperationalArea",
     components:{
@@ -21,7 +25,7 @@ export default {
     },
     data(){
         return {
-
+            form_info:source.form_info
         }
     },
     mounted() {
@@ -36,7 +40,6 @@ export default {
 
 <style scoped lang="scss">
     .l-operational-area{
-        width: 840px;
         height: 700px;
         background: #FFFFFF;
         padding: 20px;

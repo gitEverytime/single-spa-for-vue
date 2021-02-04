@@ -1,4 +1,7 @@
 export default {
+    form_info:{
+        width:'840'
+    },
     base_info:[     //基础组件数据
 
     ],

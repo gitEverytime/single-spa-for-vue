@@ -3,7 +3,7 @@
         class="l-row-wrap"
         @click="handleClickDragElement"
         :style="{
-            'height':form.height + 'px'
+            'min-height':form.height + 'px'
         }"
         :class="'l-row-wrap' + form.time"
     >

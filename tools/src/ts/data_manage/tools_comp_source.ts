@@ -20,7 +20,7 @@ export default {
         padding:'',                            //padding值
         margin:'',                             //margin值
         borderRadius:'',                       //圆角度
-        color:'',                              //字体颜色
+        color:'#454545',                              //字体颜色
         isLock:false,                          //是否锁定
         key:'',                                //数据库字段名称
         value:'',                              //数据库字段值 string
@@ -51,6 +51,8 @@ export default {
         handles:[],                            //设置拖拽句柄
         readonly:true,                         //是否只读
         disabled:true,                         //是否禁用
+        borderOuter:false,                     //是否显示外边框
+        borderInner:false,                     //是否显示内边框
     },
     //布局容器组件数据源
     layout_scource:{
@@ -63,12 +65,9 @@ export default {
         left: '',
         position: 'absolute',
         index: '',
-        isBold: false,
-        fontFamily:'',
         padding:'',
         margin:'',
         borderRadius:'',
-        color:'',
         isLock:false,
         flex:4,                                  //栅格格数
         children:[

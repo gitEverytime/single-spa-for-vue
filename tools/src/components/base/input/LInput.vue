@@ -11,6 +11,7 @@
             v-if="form.parentName.includes('append')"
             :style="{
                 width:'100px',
+                color:form.color,
                 fontFamily:form.fontFamily,
                 fontSize:form.fontSize + 'px',
                 fontWeight: form.isTextBold ? 'bold' : '400',

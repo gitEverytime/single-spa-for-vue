@@ -24,28 +24,18 @@
                 </div>
             </div>
         </div>
-<!--        <a-collapse v-model="activeKey" :bordered="false">-->
-<!--            <a-collapse-panel-->
-<!--                key="3"-->
-<!--                header="栅格定义"-->
-<!--                :style="{-->
-<!--                    backgroundColor: $store.state.light_color,-->
-<!--                    borderBottomColor: $store.state.deep_color,-->
-<!--                }"-->
-<!--            >-->
-<!--                <comp-grid-layout :obj="$store.state.comp_layout_info"></comp-grid-layout>-->
-<!--            </a-collapse-panel>-->
-<!--            <a-collapse-panel-->
-<!--                key="4"-->
-<!--                header="弹出样式"-->
-<!--                :style="{-->
-<!--                    backgroundColor: $store.state.light_color,-->
-<!--                    borderBottomColor: $store.state.deep_color,-->
-<!--                }"-->
-<!--            >-->
-<!--                <comp-l-modal-info></comp-l-modal-info>-->
-<!--            </a-collapse-panel>-->
-<!--        </a-collapse>-->
+        <a-collapse v-model="activeKey" :bordered="false">
+            <a-collapse-panel
+                key="3"
+                header="视图属性"
+                :style="{
+                    backgroundColor: $store.state.light_color,
+                    borderBottomColor: $store.state.deep_color,
+                }"
+            >
+                <comp-l-form-view :obj="obj"></comp-l-form-view>
+            </a-collapse-panel>
+        </a-collapse>
     </div>
 </template>
 
@@ -61,6 +51,7 @@ import CompDeleteLineIcon from '../../../components/base/icons/LDeleteLineIcon.v
 import CompGridLayout from '../../../components/base/layout/GridLayout.vue'
 import CompLBtnRecover from '../../../components/base/btns/LBtnRecover.vue'
 import CompLModalInfo from '../../../components/base/modal/LModalInfo.vue'
+import CompLFormView from '../../../components/base/view/LFormView.vue'
 export default {
     name: "RightBaseInfo",
     props:{
@@ -79,7 +70,8 @@ export default {
         CompDeleteLineIcon,
         CompGridLayout,
         CompLBtnRecover,
-        CompLModalInfo
+        CompLModalInfo,
+        CompLFormView
     },
     data(){
         return{

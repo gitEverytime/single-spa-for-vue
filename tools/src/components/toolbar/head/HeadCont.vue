@@ -10,6 +10,10 @@
         <comp-l-align-left :obj="comp_base_info"></comp-l-align-left>
         <comp-l-align-center :obj="comp_base_info"></comp-l-align-center>
         <comp-l-align-right :obj="comp_base_info"></comp-l-align-right>
+        <comp-l-padding-set :obj="comp_layout_info"></comp-l-padding-set>
+<!--        <comp-l-margin-set :obj="comp_layout_info"></comp-l-margin-set>-->
+        <comp-l-border-outer-icon :obj="comp_layout_info"></comp-l-border-outer-icon>
+        <comp-l-border-inner-icon :obj="comp_layout_info"></comp-l-border-inner-icon>
     </div>
 </template>
 
@@ -27,6 +31,10 @@ import CompLAlignCenter from '../../base/icons/LAlighCenterIcon.vue'
 import CompLAlignLeft from '../../base/icons/LAlignLeftIcon.vue'
 import CompLAlignRight from '../../base/icons/LAlignRightIcon.vue'
 import CompLLFontColorIcon from '../../base/icons/LFontColorIcon.vue'
+import CompLPaddingSet from '../../base/layout/LPaddingSet.vue'
+import CompLMarginSet from '../../base/layout/LMarginSet.vue'
+import CompLBorderOuterIcon from '../../base/icons/LBorderOuterIcon.vue'
+import CompLBorderInnerIcon from '../../base/icons/LBorderInnerIcon.vue'
 export default {
     name: "HeadCont",
     components:{
@@ -42,12 +50,20 @@ export default {
         CompLAlignCenter,
         CompLAlignLeft,
         CompLAlignRight,
-        CompLLFontColorIcon
+        CompLLFontColorIcon,
+        CompLPaddingSet,
+        CompLMarginSet,
+        CompLBorderOuterIcon,
+        CompLBorderInnerIcon
     },
     computed:{
         comp_base_info(){
             let vm = this;
             return vm.$store.state.comp_base_info;
+        },
+        comp_layout_info(){
+            let vm = this;
+            return vm.$store.state.comp_layout_info;
         }
     },
     data(){
