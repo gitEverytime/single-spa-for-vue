@@ -3,9 +3,10 @@
         :style="{
             display:'flex',
             flexDirection:'row',
-            alignItems:'center'
+            alignItems:'center',
+            position:'relative'
         }"
-        @click="handleClickDragElement"
+        @click.stop="handleClickDragElement"
     >
         <span
             v-if="form.parentName.includes('append')"
@@ -50,8 +51,7 @@ export default {
 
    },
    mounted(){
-       let vm = this;
-       console.log(vm.form)
+
    },
    methods:{
        /**
@@ -60,6 +60,7 @@ export default {
        handleClickDragElement(){
            let vm = this;
            vm.$store.commit('setCompBaseInfo',vm.form);
+           return false
        },
    }
 }

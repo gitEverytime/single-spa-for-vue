@@ -18,7 +18,7 @@
                 @click="showPicker = !showPicker"
                 type="font-colors"
                 :style="{
-                    'color':$store.state.text_color,
+                    'color':obj.hasOwnProperty('color') ? $store.state.text_color : $store.state.disabled_color,
                     fontSize:'16px',
                     cursor:'pointer',
                 }"
@@ -27,6 +27,7 @@
         <div class="l-color-picker-wrap" v-if="showPicker">
             <comp-l-color-picker :obj="obj"></comp-l-color-picker>
         </div>
+        <div class="mask" v-if="!obj.hasOwnProperty('color')"></div>
     </div>
 </template>
 
@@ -68,6 +69,15 @@ export default {
             position: absolute;
             top: 10px;
 
+        }
+        .mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            cursor: not-allowed;
         }
     }
     i{

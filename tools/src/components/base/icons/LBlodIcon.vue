@@ -16,21 +16,20 @@
                class="iconfont icon-jiacu default_icon"
                @click="handleClickBlod"
                :style="{
-                            'color':$store.state.text_color,
+                            'color':obj.hasOwnProperty('isTextBold') ? $store.state.text_color : $store.state.disabled_color,
                             fontSize:'16px'
                         }"
            ></i>
            <i
                v-else
                class="iconfont icon-jiacu"
-               @click=""
                :style="{
                 'color':$store.state.active_color,
                 fontSize:'16px'
             }"
            ></i>
-           <div class="mask"></div>
        </a-tooltip>
+       <div class="mask" v-if="!obj.hasOwnProperty('isTextBold')"></div>
    </div>
 </template>
 
@@ -75,6 +74,7 @@ export default {
         width: 100%;
         height: 100%;
         z-index: 9999;
+        cursor: not-allowed;
     }
 }
 i{

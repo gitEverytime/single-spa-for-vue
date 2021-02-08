@@ -77,9 +77,9 @@ export default {
         /**
          * 点击选中当前组件，回传数据给公共管理库，记录
          */
-        handleClickDragElement(){
+        handleClickDragElement(event){
             let vm = this;
-            vm.$store.commit('setCompLayoutInfo',vm.form);
+            vm.$store.commit('setCompBaseInfo',vm.form);
         },
     }
 }

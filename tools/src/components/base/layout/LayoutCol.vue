@@ -45,13 +45,11 @@
 import $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
 import 'jquery-ui-dist/jquery-ui.min.css';
-import VueDraggableResizable from 'vue-draggable-resizable-gorkys'
 import TempBaseDraggable from '../../toolbar/BaseDraggable.vue'
 import TempBaseNoDraggable from '../../toolbar/BaseNoDraggable.vue'
 export default {
     name: "LayoutCol",
     components:{
-        VueDraggableResizable,
         TempBaseDraggable,
         TempBaseNoDraggable
     },
@@ -94,7 +92,9 @@ export default {
          */
         handleClickDragElement(){
             let vm = this;
-            vm.$store.commit('setCompLayoutInfo',vm.form);
+        //     window.event.cancelBubble = true;
+        //     vm.$store.commit('setCompBaseInfo',vm.form);
+        //     return false
         },
         /**
          * 点击选中当前格子

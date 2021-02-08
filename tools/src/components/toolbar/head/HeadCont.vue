@@ -63,7 +63,7 @@ export default {
         },
         comp_layout_info(){
             let vm = this;
-            return vm.$store.state.comp_layout_info;
+            return vm.$store.state.comp_base_info;
         }
     },
     data(){

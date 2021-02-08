@@ -113,30 +113,7 @@ export default {
         children: [],
         operateLayer: 'main',                     //拖拽操作的层级
         cols: 6,
-        table_data: [
-            // {
-            //     children:[
-            //         {
-            //
-            //         },
-            //         {
-            //
-            //         },
-            //         {
-            //
-            //         },
-            //         {
-            //
-            //         },
-            //         {
-            //
-            //         },
-            //         {
-            //
-            //         }
-            //     ]
-            // }
-        ],
+        table_data: [],
     },
     /**
      * 明细表数据源

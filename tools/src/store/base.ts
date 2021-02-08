@@ -19,7 +19,8 @@ export default new Vuex.Store({
         visible_modal:false,                   //弹出是否显示,
         is_show_square:true,                   //是否显示方格（底层方格）
         is_show_dotted:true,                   //是否显示虚线（布局盒子虚线）
-        red_color:'#ff0000'                       //全局红色值
+        red_color:'#ff0000',                   //全局红色值
+        disabled_color:'#999999',              //禁用颜色
     },
     mutations:{
         increment(state){
